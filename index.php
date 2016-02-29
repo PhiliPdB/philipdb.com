@@ -48,6 +48,22 @@ function get_age($year, $month, $day) {
 	</div>
 	<div id="projects" class="card">
 		<h1>Latest projects</h1>
+		<div class="projects">
+			<div class="project" id="mastermind">
+				<img src="projects/images/mastermind.jpg" alt="MasterMind">
+				<div class="description">
+					<div class="title">MasterMind</div>
+					<div class="subtitle">Web app</div>
+				</div>
+			</div>
+			<div class="project">
+				<img src="projects/images/woording.png" alt="Woording">
+				<div class="description">
+					<div class="title">Woording</div>
+					<div class="subtitle">Android app</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- Footer -->
