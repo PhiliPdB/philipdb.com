@@ -1,3 +1,11 @@
+<?php 
+function get_age($year, $month, $day) {
+	$age = date("Y") - $year;
+	if (date("m") < $month) $age -= 1;
+	elseif (date("m") == $month && date("d") < $day) $age -= 1;
+	return $age;
+}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +42,9 @@
 	<!-- Cards -->
 	<div id="about" class="card">
 		<h1>About me</h1>
+		<p>
+			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I'm <?=get_age(1999,06,19)?> and I have developed multiple websites and Android apps. Sometimes it's hard to combine developing and school, but so far it has succeeded...
+		</p>
 	</div>
 	<div id="projects" class="card">
 		<h1>Latest projects</h1>
@@ -41,7 +52,7 @@
 
 	<!-- Footer -->
 	<footer>
-		
+		&copy; <?=date("Y")?> PhiliPdB
 	</footer>
 
 	<!-- Scripts -->

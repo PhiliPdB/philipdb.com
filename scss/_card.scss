@@ -1,12 +1,21 @@
 .card {
-	width: 100vw;
+	width: 60vw;
+	padding: $padding_unit 20vw;
+	margin: 0 auto;
+	color: $dark_text;
 
 	&:nth-child(odd) {
 		background-color: #edeeef;
 	}
 
 	h1 {
-		padding: $padding_unit;
-		font-size: 2.0em;
+		margin-bottom: $padding_unit * 2;
+		font-size: 2.5em;
+	}
+
+	p {
+		color: black;
+		opacity: .54;
+		font-size: 1.1em;
 	}
 }
