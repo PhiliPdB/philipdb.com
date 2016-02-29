@@ -1,0 +1,69 @@
+@import 'variables';
+
+@mixin blur($blur_distance) {
+	filter: blur($blur_distance);
+	margin: -$blur_distance -$blur_distance * 2 -$blur_distance * 2 -$blur_distance;
+}
+
+*, body, html {
+	margin: 0;
+	padding: 0;
+	font-family: helvetica;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#home {
+	position: relative;
+	width: 100vw;
+	height: 43.75vw;
+	max-height: 90vh;
+	overflow: hidden;
+
+	.background_image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+
+		background-color: #333;
+		background-image: url('../images/banner.jpeg');
+		background-repeat: no-repeat;
+		background-position: left center;
+		@include blur(5px);
+	}
+
+	#title {
+		padding: $padding_unit;
+		text-align: center;
+
+		h1 {
+			color: white;
+			font-weight: bold;
+			font-size: 5.0em;
+			margin-bottom: $padding_unit;
+		}
+
+		.buttons {
+			width: 100%;
+
+			button {
+				width: 45%;
+				margin: 1.25%;
+				display: inline-block;
+				background: transparent;
+				border: $padding_unit / 2 solid white;
+				cursor: pointer;
+
+				font-size: 2.4em;
+				color: white;
+			}
+		}
+	}
+}

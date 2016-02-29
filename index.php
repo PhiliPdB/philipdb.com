@@ -14,7 +14,14 @@
 	</header>
 
 	<div id="home">
-		<div id="title" class="center"></div>
+		<div class="background_image"></div>
+		<div id="title" class="center">
+			<h1>Developer.</h1>
+			<div class="buttons">
+				<button>Contact</button>
+				<button>Skills</button>
+			</div>
+		</div>
 	</div>
 
 	<div class="card"></div>
