@@ -10,22 +10,34 @@
 <body>
 	<!-- Header -->
 	<header>
-
+		<h1>PhiliPdB</h1>
+		<div class="navigation">
+			<div class="link"><a href="about">About me</a></div>
+			<div class="link"><a href="projects">Projects</a></div>
+			<div class="link"><a href="skills">Skills</a></div>
+			<div class="link"><a href="contact">Contact</a></div>
+		</div>
 	</header>
 
+	<!-- Banner -->
 	<div id="home">
 		<div class="background_image"></div>
 		<div id="title" class="center">
 			<h1>Developer.</h1>
 			<div class="buttons">
-				<button>Contact</button>
-				<button>Skills</button>
+				<a href="contact">Contact</a>
+				<a href="skills">Skills</a>
 			</div>
 		</div>
 	</div>
 
-	<div class="card"></div>
-	<div class="card"></div>
+	<!-- Cards -->
+	<div id="about" class="card">
+		<h1>About me</h1>
+	</div>
+	<div id="projects" class="card">
+		<h1>Latest projects</h1>
+	</div>
 
 	<!-- Footer -->
 	<footer>

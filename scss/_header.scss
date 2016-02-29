@@ -1,0 +1,49 @@
+header {
+	$header_height: 60px;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $header_height;
+	z-index: 1000;
+
+	// Flexbox setup
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: center;
+
+	h1 {
+		display: inline-block;
+		font-size: 30px;
+		line-height: $header_height - $padding_unit;
+		vertical-align: middle;
+		color: white;
+		margin: $padding_unit / 2;
+	}
+
+	.navigation {
+		// Flexbox setup
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: flex-end;
+		align-items: stretch;
+		align-content: center;
+
+		.link {
+			font-size: 20px;
+			line-height: $header_height - $padding_unit * 2;
+
+			a {
+				display: block;
+				width: 100%;
+				height: 100%;
+				color: white;
+				text-decoration: none;
+				padding: $padding_unit;
+			}
+		}
+	}
+}

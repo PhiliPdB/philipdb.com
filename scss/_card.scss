@@ -1,0 +1,12 @@
+.card {
+	width: 100vw;
+
+	&:nth-child(odd) {
+		background-color: #edeeef;
+	}
+
+	h1 {
+		padding: $padding_unit;
+		font-size: 2.0em;
+	}
+}

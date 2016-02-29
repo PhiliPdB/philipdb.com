@@ -18,6 +18,9 @@
 	transform: translate(-50%, -50%);
 }
 
+/* Header */
+@import 'header';
+
 #home {
 	position: relative;
 	width: 100vw;
@@ -53,9 +56,10 @@
 		.buttons {
 			width: 100%;
 
-			button {
-				width: 45%;
+			a {
+				width: calc(49% - 5% - #{$padding_unit});
 				margin: 1.25%;
+				padding: 1.25%;
 				display: inline-block;
 				background: transparent;
 				border: $padding_unit / 2 solid white;
@@ -63,7 +67,18 @@
 
 				font-size: 2.4em;
 				color: white;
+				text-decoration: none;
+
+				transition: background-color $animation, color $animation;
+				
+				&:hover {
+					background-color: white;
+					color: black;
+				}
 			}
 		}
 	}
 }
+
+// Card style
+@import 'card';
