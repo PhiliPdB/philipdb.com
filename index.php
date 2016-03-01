@@ -68,7 +68,7 @@ function get_age($year, $month, $day) {
 	</div>
 
 	<!-- Footer -->
-	<footer>
+	<footer class="card">
 		&copy; <?=date("Y")?> PhiliPdB
 	</footer>
 
