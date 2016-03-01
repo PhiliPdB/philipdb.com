@@ -83,6 +83,7 @@ gulp.task('browser-sync', function() {
 gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], function() {
 	// Copy other required files to build
 	gulp.src('fonts/**.*').pipe(gulp.dest('build/fonts'));
+	gulp.src('favicons/**.{json,xml,ico,svg}').pipe(gulp.dest('build/favicons'));
 
 	if (gutil.env.type === 'deploy') deploy();
 });
