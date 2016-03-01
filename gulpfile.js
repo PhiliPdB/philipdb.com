@@ -15,7 +15,6 @@ var gulp = require('gulp'),
 	ftp = require('vinyl-ftp'),
 	cache = require('gulp-cache'),
 	del = require('del'),
-	gulpIf = require('gulp-if'),
 	rename = require('gulp-rename');
 
 var paths = {
