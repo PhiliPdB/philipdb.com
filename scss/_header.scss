@@ -1,6 +1,17 @@
-header {
-	$header_height: 60px;
+$header_height: 60px;
 
+#header_background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $header_height;
+	z-index: 900;
+	background-color: rgba(0,0,0,.66);
+	opacity: 0;
+}
+
+header {
 	position: fixed;
 	top: 0;
 	left: 0;

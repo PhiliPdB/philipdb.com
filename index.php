@@ -17,6 +17,7 @@ function get_age($year, $month, $day) {
 </head>
 <body>
 	<!-- Header -->
+	<div id="header_background"></div>
 	<header>
 		<h1>PhiliPdB</h1>
 		<div class="navigation">
