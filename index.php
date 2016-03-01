@@ -14,6 +14,9 @@ function get_age($year, $month, $day) {
 	<title>PhiliPdB</title>
 	
 	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Favicons -->
+	<?php include('favicons.html') ?>
 </head>
 <body>
 	<?php require('components/header.html') ?>
@@ -56,7 +59,7 @@ function get_age($year, $month, $day) {
 				</div>
 			</div>
 		</div>
-		<a class="button" href="projects">View all projects</a>
+		<a class="button" href="projects">View all my projects</a>
 	</div>
 
 	<!-- Footer -->

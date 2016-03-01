@@ -27,8 +27,8 @@ var paths = {
 		dest: 'build/js/'
 	},
 	images: {
-		src: 'images/**/*.{jpg,jpeg,png}',
-		dest: 'build/images/'
+		src: '{images,favicons}/**/*.{jpg,jpeg,png}',
+		dest: 'build/'
 	},
 	html: {
 		src: ['**/*.{php,html}', '!{node_modules,build}/**/*.{php,html}'],
