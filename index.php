@@ -13,20 +13,10 @@ function get_age($year, $month, $day) {
 	
 	<title>PhiliPdB</title>
 	
-	<link rel="stylesheet" href="build/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!-- Header -->
-	<div id="header_background"></div>
-	<header>
-		<h1>PhiliPdB</h1>
-		<div class="navigation">
-			<div class="link"><a href="about">About me</a></div>
-			<div class="link"><a href="projects">Projects</a></div>
-			<div class="link"><a href="skills">Skills</a></div>
-			<div class="link"><a href="contact">Contact</a></div>
-		</div>
-	</header>
+	<?php require('components/header.html') ?>
 
 	<!-- Banner -->
 	<div id="home">
@@ -52,21 +42,21 @@ function get_age($year, $month, $day) {
 		<h1>Latest projects</h1>
 		<div class="projects">
 			<div class="project" id="mastermind">
-				<img src="projects/images/mastermind.jpg" alt="MasterMind">
+				<img src="images/projects/mastermind.jpg" alt="MasterMind">
 				<div class="description">
 					<div class="title">MasterMind</div>
 					<div class="subtitle">Web app</div>
 				</div>
 			</div>
 			<div class="project">
-				<img src="projects/images/woording.png" alt="Woording">
+				<img src="images/projects/woording.png" alt="Woording">
 				<div class="description">
 					<div class="title">Woording</div>
 					<div class="subtitle">Android app</div>
 				</div>
 			</div>
 		</div>
-		<a class="button" href="projects">View all my projects</a>
+		<a class="button" href="projects">View all projects</a>
 	</div>
 
 	<!-- Footer -->
@@ -75,6 +65,6 @@ function get_age($year, $month, $day) {
 	</footer>
 
 	<!-- Scripts -->
-	<script src="build/js/script.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="js/script.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

@@ -14,7 +14,9 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	ftp = require('vinyl-ftp'),
 	cache = require('gulp-cache'),
-	del = require('del');
+	del = require('del'),
+	gulpIf = require('gulp-if'),
+	rename = require('gulp-rename');
 
 var paths = {
 	styles: {
@@ -26,18 +28,16 @@ var paths = {
 		dest: 'build/js/'
 	},
 	images: {
-		src: 'images/**/*.*',
+		src: 'images/**/*.{jpg,jpeg,png}',
 		dest: 'build/images/'
+	},
+	html: {
+		src: ['**/*.{php,html}', '!{node_modules,build}/**/*.{php,html}'],
+		dest: 'build/'
 	}
 };
 
-var liveReloadFiles = [
-	'index.php',
-	'favicons.php',
-	'build/css/**/*.css',
-	'build/js/**/*.js',
-	'build/images/**/*.*'
-];
+var liveReloadFiles = 'build/**';
 
 gulp.task('default', ['serve', 'watch']);
 
@@ -47,13 +47,14 @@ gulp.task('watch', function() {
 	gulp.watch(paths.styles.src, ['build:scss']);
 	gulp.watch(paths.scripts.src, ['eslint', 'build:js']);
 	gulp.watch(paths.images.src, ['minify-images']);
+	gulp.watch(paths.html.src, ['build:html']);
 });
 
 // Start the server
 gulp.task('connect', function() {
 	// PHP server (will be proxied)
 	phpConnect.server({
-		base: './',
+		base: './build/',
 		hostname: '0.0.0.0',
 		port: 6000
 	});
@@ -80,8 +81,23 @@ gulp.task('browser-sync', function() {
 });
 
 // Build all
-gulp.task('build', ['build:scss', 'build:js', 'minify-images'], function() {
+gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], function() {
+	// Copy other required files to build
+	gulp.src('fonts/**.*').pipe(gulp.dest('build/fonts'));
+
 	if (gutil.env.type === 'deploy') deploy();
+});
+
+// HTML/php stuff
+gulp.task('build:html', function() {
+	gulp.src(paths.html.src)
+		.pipe(rename(function (path) {
+			if (path.dirname === '.' && path.extname === 'php' && path.basename !== 'index') {
+				path.dirname = path.basename;
+				path.basename = 'index';
+			}
+		}))
+		.pipe(gulp.dest(paths.html.dest));
 });
 
 // scss stuff
@@ -136,14 +152,11 @@ function deploy() {
 		log: gutil.log
 	});
 
-	var globs = [
-		'build/**',
-		'index.php'
-	];
+	var globs = 'build/**'
 
-	// using base = '.' will transfer everything to folder correctly 
+	// using base = './build' will transfer everything to folder correctly 
 	// turn off buffering in gulp.src for best performance 
-	return gulp.src(globs, { base: '.', buffer: false })
+	return gulp.src(globs, { base: './build', buffer: false })
 		.pipe(connection.newer(config.remote_path)) // only upload newer files 
 		.pipe(connection.dest(config.remote_path));
 }
