@@ -46,6 +46,7 @@ function get_age($year, $month, $day) {
 		<p>
 			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I'm <?=get_age(1999,06,19)?> and I have developed multiple websites and Android apps. Sometimes it's hard to combine developing and school, but so far it has succeeded...
 		</p>
+		<a class="button" href="about">Learn more about me</a>
 	</div>
 	<div id="projects" class="card">
 		<h1>Latest projects</h1>
@@ -65,6 +66,7 @@ function get_age($year, $month, $day) {
 				</div>
 			</div>
 		</div>
+		<a class="button" href="projects">View all my projects</a>
 	</div>
 
 	<!-- Footer -->

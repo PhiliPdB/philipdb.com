@@ -18,4 +18,22 @@
 		opacity: .54;
 		font-size: 1.1em;
 	}
+
+	a.button {
+		display: inline-block;
+		border: $padding_unit / 2 solid $dark_text;
+		padding: $padding_unit * 2;
+		margin: $padding_unit * 2 0;
+
+		color: $dark_text;
+		text-decoration: none;
+		font-size: 1.1em;
+
+		transition: background-color $animation, color $animation;
+
+		&:hover {
+			background-color: $dark_text;
+			color: white;
+		}
+	}
 }
