@@ -12,6 +12,7 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	cssnano = require('gulp-cssnano'),
 	imagemin = require('gulp-imagemin'),
+	pngquant = require('imagemin-pngquant'),
 	ftp = require('vinyl-ftp'),
 	cache = require('gulp-cache'),
 	del = require('del'),
@@ -135,9 +136,10 @@ gulp.task('build:js', function() {
 // Images
 gulp.task('minify-images', function () {
 	gulp.src(paths.images.src)
-		.pipe(cache(imagemin({
-			progressive: true
-		})))
+		.pipe(imagemin({
+			progressive: true,
+			use: [pngquant()]
+		}))
 		.pipe(gulp.dest(paths.images.dest));
 });
 

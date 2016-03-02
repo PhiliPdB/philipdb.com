@@ -45,14 +45,14 @@ function get_age($year, $month, $day) {
 		<h1>Latest projects</h1>
 		<div class="projects">
 			<div class="project" id="mastermind">
-				<img src="images/projects/mastermind.jpg" alt="MasterMind">
+				<img src="images/projects/mastermind.png" alt="MasterMind" width="512" height="512">
 				<div class="description">
 					<div class="title">MasterMind</div>
 					<div class="subtitle">Web app</div>
 				</div>
 			</div>
 			<div class="project">
-				<img src="images/projects/woording.png" alt="Woording">
+				<img src="images/projects/woording.png" alt="Woording" width="512" height="512">
 				<div class="description">
 					<div class="title">Woording</div>
 					<div class="subtitle">Android app</div>
