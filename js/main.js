@@ -1,4 +1,9 @@
+let drawer = document.getElementById('navigation_drawer');
+let drawerOpen = false;
+let timeoutID;
+
 window.onload = function() {
+	addEvent(document.body, 'click', handleDrawerClick);
 	addEvent(window, 'scroll', updateHeaderBackground);
 	updateHeaderBackground();
 }
@@ -25,6 +30,28 @@ function updateHeaderBackground(event) {
 		header.style.opacity = 1;
 	} else if (calc < 0) {
 		header.style.opacity = 0;
+	}
+}
+
+function openDrawer() {
+	drawer.className = 'open animate_open';
+	timeoutID = window.setTimeout(() => {
+		drawer.className = drawer.className.replace(' animate_open', '');
+		drawerOpen = true;
+	}, 300);
+}
+
+function closeDrawer() {
+	drawerOpen = false;
+	drawer.className = 'animate_close';
+	timeoutID = window.setTimeout(() => {
+		drawer.className = '';
+	}, 300);
+}
+
+function handleDrawerClick(event) {
+	if (event.target != drawer && drawerOpen) {
+		closeDrawer();
 	}
 }
 

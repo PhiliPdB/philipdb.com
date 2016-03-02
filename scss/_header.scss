@@ -1,4 +1,38 @@
 $header_height: 56px;
+$header_break: 500px;
+
+#navigation_drawer {
+	position: fixed;
+	top: 0;
+	left: calc(0px - (100vw - 56px) - 30px);
+	bottom: 0;
+	width: calc(100vw - 56px);
+	background-color: white;
+	z-index: 1100;
+	box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+				0  6px 30px 5px rgba(0, 0, 0, 0.12),
+				0  8px 10px -5px rgba(0, 0, 0, 0.4);
+
+	&.open {
+		left: 0;
+	}
+
+	&.animate_open {
+		animation: open $animation;
+	}
+	&.animate_close {
+		animation: close $animation;
+	}
+}
+
+@keyframes open {
+	from { left: calc(0px - (100vw - 56px)); }
+	to { left: 0; }
+}
+@keyframes close {
+	from { left: 0; }
+	to { left: calc(0px - (100vw - 56px)); }
+}
 
 #header_background {
 	position: fixed;
@@ -25,6 +59,16 @@ header {
 	justify-content: space-between;
 	align-items: stretch;
 	align-content: center;
+
+	.menu {
+		display: none;
+		padding: 12px;
+		margin: 4px;
+
+		@media screen and (max-width: #{$header_break}) {
+			display: block;
+		}
+	}
 
 	h1 {
 		display: inline-block;
@@ -56,5 +100,13 @@ header {
 				padding: $padding_unit;
 			}
 		}
+
+		@media screen and (max-width: #{$header_break}) {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: #{$header_break}) {
+		justify-content: flex-start;
 	}
 }
