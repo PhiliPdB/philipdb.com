@@ -14,10 +14,11 @@ var gulp = require('gulp'),
 	imagemin = require('gulp-imagemin'),
 	pngquant = require('imagemin-pngquant'),
 	ftp = require('vinyl-ftp'),
-	cache = require('gulp-cache'),
 	del = require('del'),
-	rename = require('gulp-rename');
+	rename = require('gulp-rename'),
+	CacheBuster = require('gulp-cachebust');
 
+var cachebust = new CacheBuster();
 var paths = {
 	styles: {
 		src: 'scss/**/*.scss',
@@ -98,7 +99,8 @@ gulp.task('build:html', function() {
 				path.basename = 'index';
 			}
 		}))
-		.pipe(gulp.dest(paths.html.dest));
+		.pipe(gutil.env.type === 'deploy' ? cachebust.references() : gutil.noop())
+		.pipe(gulp.dest(paths.html.dest))
 });
 
 // scss stuff
@@ -108,6 +110,7 @@ gulp.task('build:scss', function() {
 		.pipe(autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
 		.pipe(gutil.env.type === 'production' || gutil.env.type === 'deploy' ? cssnano() : gutil.noop())
+		.pipe(gutil.env.type === 'deploy' ? cachebust.resources() : gutil.noop())
 		.pipe(gulp.dest(paths.styles.dest))
 		.pipe(browserSync.reload({
 			stream: true
@@ -127,6 +130,7 @@ gulp.task('build:js', function() {
 		.pipe(concat('script.js'))
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
 		.pipe(gutil.env.type === 'production' || gutil.env.type === 'deploy' ? uglify() : gutil.noop())
+		.pipe(gutil.env.type === 'deploy' ? cachebust.resources() : gutil.noop())
 		.pipe(gulp.dest(paths.scripts.dest))
 		.pipe(browserSync.reload({
 			stream: true
@@ -164,12 +168,7 @@ function deploy() {
 }
 
 // MISC
-gulp.task('rebuild', ['clear', 'build']);
-gulp.task('clear', ['clear:cache', 'clear:build']);
-
-gulp.task('clear:cache', function (done) {
-	return cache.clearAll(done);
-});
+gulp.task('rebuild', ['clear:build', 'build']);
 
 gulp.task('clear:build', function(done) {
 	return del('build');
