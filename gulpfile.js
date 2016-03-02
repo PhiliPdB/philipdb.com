@@ -1,24 +1,17 @@
 'use strict';
 
 var gulp = require('gulp'),
-	gutil = require('gulp-util'),
-	babel = require('gulp-babel'),
-	phpConnect = require('gulp-connect-php'),
+	$ = require('gulp-load-plugins')({
+		rename: {
+			'gulp-connect-php': 'phpConnect'
+		}
+	}),
 	browserSync = require('browser-sync'),
-	sass = require('gulp-sass'),
-	autoprefixer = require('gulp-autoprefixer'),
-	eslint = require('gulp-eslint'),
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	cssnano = require('gulp-cssnano'),
-	imagemin = require('gulp-imagemin'),
 	pngquant = require('imagemin-pngquant'),
 	ftp = require('vinyl-ftp'),
-	del = require('del'),
-	rename = require('gulp-rename'),
-	CacheBuster = require('gulp-cachebust');
+	del = require('del');
 
-var cachebust = new CacheBuster();
+var cachebust = new $.cachebust();
 var paths = {
 	styles: {
 		src: 'scss/**/*.scss',
@@ -54,7 +47,7 @@ gulp.task('watch', function() {
 // Start the server
 gulp.task('connect', function() {
 	// PHP server (will be proxied)
-	phpConnect.server({
+	$.phpConnect.server({
 		base: './build/',
 		hostname: '0.0.0.0',
 		port: 6000
@@ -93,24 +86,24 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], fu
 // HTML/php stuff
 gulp.task('build:html', function() {
 	gulp.src(paths.html.src)
-		.pipe(rename(function (path) {
+		.pipe($.rename(function (path) {
 			if (path.dirname === '.' && path.extname === '.php' && path.basename !== 'index') {
 				path.dirname = path.basename;
 				path.basename = 'index';
 			}
 		}))
-		.pipe(gutil.env.type === 'deploy' ? cachebust.references() : gutil.noop())
+		.pipe($.util.env.type === 'deploy' ? cachebust.references() : $.util.noop())
 		.pipe(gulp.dest(paths.html.dest))
 });
 
 // scss stuff
 gulp.task('build:scss', function() {
 	gulp.src(paths.styles.src)
-		.pipe(sass().on('error', sass.logError))
-		.pipe(autoprefixer())
+		.pipe($.sass().on('error', sass.logError))
+		.pipe($.autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
-		.pipe(gutil.env.type === 'production' || gutil.env.type === 'deploy' ? cssnano() : gutil.noop())
-		.pipe(gutil.env.type === 'deploy' ? cachebust.resources() : gutil.noop())
+		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.cssnano() : $.util.noop())
+		.pipe($.util.env.type === 'deploy' ? cachebust.resources() : $.util.noop())
 		.pipe(gulp.dest(paths.styles.dest))
 		.pipe(browserSync.reload({
 			stream: true
@@ -120,27 +113,27 @@ gulp.task('build:scss', function() {
 // JS stuff
 gulp.task('eslint', function() {
 	gulp.src(paths.scripts.src)
-		.pipe(eslint('.eslintrc'))
-		.pipe(eslint.format());
+		.pipe($.eslint('.eslintrc'))
+		.pipe($.eslint.format());
 });
 
 gulp.task('build:js', function() {
 	gulp.src(paths.scripts.src)
-		.pipe(babel())
-		.pipe(concat('script.js'))
+		.pipe($.babel())
+		.pipe($.concat('script.js'))
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
-		.pipe(gutil.env.type === 'production' || gutil.env.type === 'deploy' ? uglify() : gutil.noop())
-		.pipe(gutil.env.type === 'deploy' ? cachebust.resources() : gutil.noop())
+		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.uglify() : $.util.noop())
+		.pipe($.util.env.type === 'deploy' ? cachebust.resources() : $.util.noop())
 		.pipe(gulp.dest(paths.scripts.dest))
 		.pipe(browserSync.reload({
 			stream: true
-		}))
+		}));
 });
 
 // Images
 gulp.task('minify-images', function () {
 	gulp.src(paths.images.src)
-		.pipe(imagemin({
+		.pipe($.imagemin({
 			progressive: true,
 			use: [pngquant()]
 		}))
