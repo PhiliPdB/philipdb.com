@@ -29,7 +29,7 @@
 #home {
 	position: relative;
 	width: 100vw;
-	height: 43.75vw;
+	height: 66.67vw;
 	max-height: 90vh;
 	overflow: hidden;
 
@@ -41,7 +41,7 @@
 		right: 0;
 
 		background-color: #333;
-		background-image: url('../images/banner.jpeg');
+		background-image: url(../images/banner.jpeg);
 		background-repeat: no-repeat;
 		background-position: left center;
 		@include blur(5px);
@@ -98,7 +98,7 @@
 	align-content: flex-start;
 
 	.project {
-		$width: .24 * 60vw;
+		$width: .24 * $card_width;
 		position: relative;
 		overflow: hidden;
 		width: $width;
@@ -145,17 +145,29 @@
 			content: '\A';
 			position: absolute;
 			width: 100%;
-			height:100%;
-			top:0;
-			left:0;
+			height: 100%;
+			top: 0;
+			left: 0;
 			border-radius: 4px;
-			background:rgba(0,0,0,0.6);
+			background: rgba(0,0,0,0.66);
 			opacity: 0;
 			transition: all $animation;
 		}
 
 		&:hover:after {
 			opacity: 1;
+		}
+
+		// Resize on smaller screens
+		@media screen and (max-width: 950px) {
+			$width: .49 * $card_width;
+			width: $width;
+			height: $width;
+		}
+		@media screen and (max-width: 500px) {
+			$width: .99 * $card_width;
+			width: $width;
+			height: $width;
 		}
 	}
 }

@@ -1,6 +1,8 @@
+$card_width: 60vw;
+
 .card {
-	width: 60vw;
-	padding: $padding_unit 20vw;
+	width: $card_width;
+	padding: $padding_unit (100vw - $card_width)/2;
 	margin: 0 auto;
 	color: $dark_text;
 
