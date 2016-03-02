@@ -80,7 +80,7 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], fu
 	gulp.src('fonts/**.*').pipe(gulp.dest('build/fonts'));
 	gulp.src('favicons/**.{json,xml,ico,svg}').pipe(gulp.dest('build/favicons'));
 
-	if (gutil.env.type === 'deploy') deploy();
+	if ($.util.env.type === 'deploy') deploy();
 });
 
 // HTML/php stuff
@@ -99,7 +99,7 @@ gulp.task('build:html', function() {
 // scss stuff
 gulp.task('build:scss', function() {
 	gulp.src(paths.styles.src)
-		.pipe($.sass().on('error', sass.logError))
+		.pipe($.sass().on('error', $.sass.logError))
 		.pipe($.autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
 		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.cssnano() : $.util.noop())
@@ -140,15 +140,15 @@ gulp.task('minify-images', function () {
 		.pipe(gulp.dest(paths.images.dest));
 });
 
+// Deploying
 gulp.task('deploy', deploy);
-
 function deploy() {
 	var config = require('./config.json');
 	var connection = ftp.create({
 		host: config.host,
 		user: config.user,
 		password: config.password,
-		log: gutil.log
+		log: $.util.log
 	});
 
 	var globs = 'build/**'
