@@ -1,3 +1,7 @@
+<?php 
+// Enable PHP Gzip compression
+ob_start('ob_gzhandler');
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
