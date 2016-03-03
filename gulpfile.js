@@ -30,8 +30,13 @@ var paths = {
 		dest: 'build/'
 	}
 };
-
-var liveReloadFiles = 'build/**';
+var liveReloadFiles = [
+	'build/css/**/*.css',
+	'build/js/**/*.js',
+	'build/images/**/*.{png,jpg,jpeg}',
+	'build/components/**/*.html',
+	'build/**/index.php'
+];
 
 gulp.task('default', ['serve', 'watch']);
 
