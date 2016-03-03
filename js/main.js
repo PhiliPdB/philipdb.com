@@ -52,16 +52,19 @@ function updateHeaderBackground(event) {
 }
 
 function openDrawer() {
-	drawer.style.left = '';
-	console.log(drawer.style.offsetLeft);
 	drawer.classList.add('open');
-	drawerOpen = true;
+	let id = window.setTimeout(() => {
+		drawerOpen = true;
+		window.clearTimeout(id);
+	}, 300);
 }
 
 function closeDrawer() {
-	drawerOpen = false;
 	drawer.className = '';
-	drawer.style.left = '';
+	let id = window.setTimeout(() => {
+		drawerOpen = false;
+		window.clearTimeout(id);
+	}, 300);
 }
 
 function handleDrawerClick(event) {
@@ -91,68 +94,42 @@ function setupSwipeDrawer() {
 	addEvent(document.body, 'touchmove', event => {
 		const touch = event.targetTouches[0];
 		if (drawerOpen && touch.pageX < startPos.x) {
-			drawer.style.left = `${touch.pageX - startPos.x}px`;
+			// drawer.style.left = `${touch.pageX - startPos.x - drawerWidth - 30}px`;
+			let position = 30 + touch.pageX - (startPos.x - drawerWidth);
+			drawer.style.transition = 'none';
+			drawer.style.webkitTransition = 'none';
+			drawer.style.transform = `translate(${position}px, 0)`;
+			drawer.style.webkitTransform = `translate(${position}px, 0)`;
 		}
 	});
 
 	addEvent(document.body, 'touchend', event => {
 		const touch = event.changedTouches[0];
-		// if (-10 > startPos.x - touch.pageX && startPos.x - touch.pageX > 10
-		// 	&& -10 > startPos.y - touch.pageY  && startPos.y - touch.pageY > 10) {
-		// 	return false; // Do nothing when slightly moved
-		// } else
 		if (touch.pageX <= drawerWidth / 2) {
 			// Close drawer
-			calcAnimationTime = (touch.pageX - startPos.x) / drawerWidth * totalAnimationTime;
-			animation = window.requestAnimationFrame(swipeCloseDrawer);
+			calcAnimationTime = touch.pageX / drawerWidth * totalAnimationTime;			// animation = window.requestAnimationFrame(swipeCloseDrawer);
+			let animationString = `${calcAnimationTime/1000}s 0s cubic-bezier(.55,0,.1,1)`;
+			drawer.style.transition = `transform ${animationString}, -webkit-transform ${animationString}`;
+			drawer.style.webkitTransition = `transform ${animationString}, -webkit-transform ${animationString}`;
+			drawer.className = '';
+			drawer.style.transform = '';
+			drawer.style.webkitTransform = '';
 		} else if (touch.pageX > drawerWidth / 2) {
 			// Open drawer
-			calcAnimationTime = (touch.pageX - startPos.x) / drawerWidth * totalAnimationTime;
-			animation = window.requestAnimationFrame(swipeOpenDrawer);
+			calcAnimationTime = touch.pageX / drawerWidth * totalAnimationTime;			// animation = window.requestAnimationFrame(swipeCloseDrawer);
+			let animationString = `${calcAnimationTime/1000}s 0s cubic-bezier(.55,0,.1,1)`;
+			drawer.style.transition = `transform ${animationString}, -webkit-transform ${animationString}`;
+			drawer.style.webkitTransition = `transform ${animationString}, -webkit-transform ${animationString}`;
+			drawer.className = 'open';
+			drawer.style.transform = '';
+			drawer.style.webkitTransform = '';
 		}
+		let id = window.setTimeout(() => {
+			drawer.style.transition = '';
+			drawer.style.webkitTransition = '';
+			window.clearTimeout(id);
+		})
 	});
-}
-
-function swipeOpenDrawer(timestamp) {
-	if (!startAnimationTime) startAnimationTime = timestamp;
-	console.debug(timestamp - startAnimationTime);
-	let progress = timestamp - startAnimationTime + (totalAnimationTime - calcAnimationTime);
-	let currentPosition = Math.min(progress / totalAnimationTime * drawerWidth - drawerWidth, 0);
-	drawer.style.left = `${currentPosition}px`;
-
-	if (progress < totalAnimationTime) window.requestAnimationFrame(swipeOpenDrawer);
-	else {
-		window.cancelAnimationFrame(animation);
-		drawerOpen = true;
-		console.log(drawer.style.offsetLeft);
-		drawer.className = 'open';
-		drawer.style.left = '';
-		resetAnimation();
-	}
-}
-
-function swipeCloseDrawer(timestamp) {
-	if (!startAnimationTime) startAnimationTime = timestamp;
-	let progress = timestamp - startAnimationTime + (totalAnimationTime - calcAnimationTime);
-	let currentPosition = Math.min(-progress / totalAnimationTime * drawerWidth, 0);
-	drawer.style.left = `${currentPosition}px`;
-
-	if (progress < totalAnimationTime) window.requestAnimationFrame(swipeCloseDrawer);
-	else {
-		window.cancelAnimationFrame(animation);
-		drawerOpen = false;
-		console.log(drawer.style.offsetLeft);
-		drawer.className = '';
-		drawer.style.left = '';
-		resetAnimation();
-	}
-}
-
-function resetAnimation() {
-	animation = undefined;
-	calcAnimationTime = undefined;
-	startAnimationTime = undefined;
-	drawerWidth = undefined;
 }
 
 // This is a function from https://github.com/remy/html5demos
