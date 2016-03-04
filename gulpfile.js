@@ -27,6 +27,7 @@ var paths = {
 	},
 	html: {
 		src: ['**/*.{php,html}', '!{node_modules,build}/**/*.{php,html}'],
+		watch: ['./*.php', 'components/**/*.html'],
 		dest: 'build/'
 	}
 };
@@ -46,7 +47,7 @@ gulp.task('watch', function() {
 	gulp.watch(paths.styles.src, ['build:scss']);
 	gulp.watch(paths.scripts.src, ['eslint', 'build:js']);
 	gulp.watch(paths.images.src, ['minify-images']);
-	gulp.watch(paths.html.src, ['build:html']);
+	gulp.watch(paths.html.watch, ['build:html']);
 });
 
 // Start the server
