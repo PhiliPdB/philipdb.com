@@ -7,18 +7,26 @@ $card_width: 60vw;
 	color: $dark_text;
 
 	&:nth-child(odd) {
-		background-color: #edeeef;
+		background-color: $lighter_grey;
 	}
 
 	h1 {
 		margin-bottom: $padding_unit * 2;
 		font-size: 2.5em;
+
+		@media screen and (max-width: $mobile_s) {
+			font-size: 2.0em;
+		}
 	}
 
 	p {
 		color: black;
 		opacity: .54;
 		font-size: 1.1em;
+
+		@media screen and (max-width: $mobile_s) {
+			font-size: 1.0em;
+		}
 	}
 
 	a.button {
@@ -37,5 +45,21 @@ $card_width: 60vw;
 			background-color: $dark_text;
 			color: white;
 		}
+
+		@media screen and (max-width: $mobile_s) {
+			padding: $padding_unit;
+			margin: $padding_unit 0;
+		}
+	}
+
+	@media screen and (max-width: 800px) {
+		$card_width: 80vw;
+		width: $card_width;
+		padding: $padding_unit (100vw - $card_width)/2;
+	}
+	@media screen and (max-width: $mobile_l) {
+		$card_width: 90vw;
+		width: $card_width;
+		padding: $padding_unit (100vw - $card_width)/2;
 	}
 }
