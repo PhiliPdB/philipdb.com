@@ -62,7 +62,8 @@ const startPos = {
 };
 const totalAnimationTime = 300;
 let startAnimationTime = 0;
-let drawerWidth, calcAnimationTime, animation;
+let startedSwipe = false;
+let drawerWidth;
 function setupSwipeDrawer() {
 	addEvent(document.body, 'touchstart', event => {
 		const touch = event.targetTouches[0];
@@ -70,20 +71,19 @@ function setupSwipeDrawer() {
 			startPos.x = touch.pageX;
 			startPos.y = touch.pageY;
 			drawerWidth = drawer.offsetWidth;
-		} else {
-			// TODO
+			startedSwipe = true;
 		}
 	});
 
 	addEvent(document.body, 'touchmove', event => {
 		const touch = event.targetTouches[0];
-		if (drawerOpen && touch.pageX < startPos.x) {
+		if (startedSwipe && drawerOpen && touch.pageX < startPos.x) {
 			let position = Math.min(30 + touch.pageX - (startPos.x - drawerWidth), drawerWidth + 30);
 			drawer.style.transition = 'none';
 			drawer.style.webkitTransition = 'none';
 			drawer.style.transform = `translate(${position}px, 0)`;
 			drawer.style.webkitTransform = `translate(${position}px, 0)`;
-		} else if (!drawerOpen && touch.pageX > startPos.x) {
+		} else if (startedSwipe && !drawerOpen && touch.pageX > startPos.x) {
 			let position = Math.min(30 + touch.pageX - startPos.x, drawerWidth + 30)
 			drawer.style.transition = 'none';
 			drawer.style.webkitTransition = 'none';
@@ -94,17 +94,19 @@ function setupSwipeDrawer() {
 
 	addEvent(document.body, 'touchend', event => {
 		const touch = event.changedTouches[0];
-		if (touch.pageX <= drawerWidth / 2) {
+		if (startedSwipe && touch.pageX <= drawerWidth / 2) {
 			// Close drawer
 			drawerOpen = false;
+			startedSwipe = false;
 			drawer.style.transition = '';
 			drawer.style.webkitTransition = '';
 			drawer.className = '';
 			drawer.style.transform = '';
 			drawer.style.webkitTransform = '';
-		} else if (touch.pageX > drawerWidth / 2) {
+		} else if (startedSwipe && touch.pageX > drawerWidth / 2) {
 			// Open drawer
 			drawerOpen = true;
+			startedSwipe = false;
 			drawer.style.transition = '';
 			drawer.style.webkitTransition = '';
 			drawer.className = 'open';
