@@ -5,6 +5,7 @@ let timeoutID;
 window.onload = function() {
 	addEvent(document.body, 'click', handleDrawerClick);
 	addEvent(window, 'scroll', updateHeaderBackground);
+	
 	updateHeaderBackground();
 	setupSwipeDrawer();
 }
@@ -13,18 +14,16 @@ function updateHeaderBackground(event) {
 	let header = document.getElementById('header_background');
 	let banner = document.getElementById('home');
 	let scrollTop = window.scrollY;
-	let offset = {top: 0, left: 0};
+	let offset = 0;
 	let node = banner;
 	while (node) {
-		offset.top += node.offsetTop;
-		offset.left += node.offsetLeft;
+		offset += node.offsetTop;
 		node = node.offsetParent;
 	}
 	const height = banner.offsetHeight;
-	const range = 200;
 
-	offset = offset.top + height / 2;
-	let calc = (scrollTop - offset + range) / range;
+	offset += height;
+	let calc = (scrollTop - offset + height) / height;
 
 	header.style.opacity = calc;
 	if (calc > 1) {
