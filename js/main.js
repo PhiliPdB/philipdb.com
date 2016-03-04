@@ -1,20 +1,3 @@
-// Polyfill requestAnimationFrame and cancelAnimationFrame
-window.requestAnimationFrame = (function() {
-	return window.requestAnimationFrame
-		|| window.webkitRequestAnimationFrame
-		|| window.mozRequestAnimationFrame
-		|| window.msRequestAnimationFrame
-		|| window.oRequestAnimationFrame
-		|| function(callback) { timeoutID = setTimeout(callback, 1000/60); return timeoutID; };
-})();
-window.cancelAnimationFrame = (function() {
-	return window.cancelAnimationFrame
-		|| window.webkitCancelAnimationFrame
-		|| window.webkitCancelRequestAnimationFrame
-		|| window.mozRequestAnimationFrame
-		|| function(timeoutID) { clearTimeout(timeoutID); };
-})();
-
 let drawer = document.getElementById('navigation_drawer');
 let drawerOpen = false;
 let timeoutID;
@@ -82,9 +65,10 @@ let startAnimationTime = 0;
 let drawerWidth, calcAnimationTime, animation;
 function setupSwipeDrawer() {
 	addEvent(document.body, 'touchstart', event => {
-		if (drawerOpen) {
-			startPos.x = event.targetTouches[0].pageX;
-			startPos.y = event.targetTouches[0].pageY;
+		const touch = event.targetTouches[0];
+		if (drawerOpen || !drawerOpen && touch.pageX < 24) {
+			startPos.x = touch.pageX;
+			startPos.y = touch.pageY;
 			drawerWidth = drawer.offsetWidth;
 		} else {
 			// TODO
@@ -94,8 +78,13 @@ function setupSwipeDrawer() {
 	addEvent(document.body, 'touchmove', event => {
 		const touch = event.targetTouches[0];
 		if (drawerOpen && touch.pageX < startPos.x) {
-			// drawer.style.left = `${touch.pageX - startPos.x - drawerWidth - 30}px`;
-			let position = 30 + touch.pageX - (startPos.x - drawerWidth);
+			let position = Math.min(30 + touch.pageX - (startPos.x - drawerWidth), drawerWidth + 30);
+			drawer.style.transition = 'none';
+			drawer.style.webkitTransition = 'none';
+			drawer.style.transform = `translate(${position}px, 0)`;
+			drawer.style.webkitTransform = `translate(${position}px, 0)`;
+		} else if (!drawerOpen && touch.pageX > startPos.x) {
+			let position = Math.min(30 + touch.pageX - startPos.x, drawerWidth + 30)
 			drawer.style.transition = 'none';
 			drawer.style.webkitTransition = 'none';
 			drawer.style.transform = `translate(${position}px, 0)`;
@@ -107,28 +96,21 @@ function setupSwipeDrawer() {
 		const touch = event.changedTouches[0];
 		if (touch.pageX <= drawerWidth / 2) {
 			// Close drawer
-			calcAnimationTime = touch.pageX / drawerWidth * totalAnimationTime;			// animation = window.requestAnimationFrame(swipeCloseDrawer);
-			let animationString = `${calcAnimationTime/1000}s 0s cubic-bezier(.55,0,.1,1)`;
-			drawer.style.transition = `transform ${animationString}, -webkit-transform ${animationString}`;
-			drawer.style.webkitTransition = `transform ${animationString}, -webkit-transform ${animationString}`;
+			drawerOpen = false;
+			drawer.style.transition = '';
+			drawer.style.webkitTransition = '';
 			drawer.className = '';
 			drawer.style.transform = '';
 			drawer.style.webkitTransform = '';
 		} else if (touch.pageX > drawerWidth / 2) {
 			// Open drawer
-			calcAnimationTime = touch.pageX / drawerWidth * totalAnimationTime;			// animation = window.requestAnimationFrame(swipeCloseDrawer);
-			let animationString = `${calcAnimationTime/1000}s 0s cubic-bezier(.55,0,.1,1)`;
-			drawer.style.transition = `transform ${animationString}, -webkit-transform ${animationString}`;
-			drawer.style.webkitTransition = `transform ${animationString}, -webkit-transform ${animationString}`;
+			drawerOpen = true;
+			drawer.style.transition = '';
+			drawer.style.webkitTransition = '';
 			drawer.className = 'open';
 			drawer.style.transform = '';
 			drawer.style.webkitTransform = '';
 		}
-		let id = window.setTimeout(() => {
-			drawer.style.transition = '';
-			drawer.style.webkitTransition = '';
-			window.clearTimeout(id);
-		})
 	});
 }
 
