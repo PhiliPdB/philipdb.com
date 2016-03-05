@@ -14,20 +14,20 @@ var gulp = require('gulp'),
 var cachebust = new $.cachebust();
 var paths = {
 	styles: {
-		src: 'scss/**/*.scss',
+		src: 'src/scss/**/*.scss',
 		dest: 'build/css/'
 	},
 	scripts: {
-		src: 'js/**/*.js',
+		src: 'src/js/**/*.js',
 		dest: 'build/js/'
 	},
 	images: {
-		src: '{images,favicons}/**/*.{jpg,jpeg,png}',
+		src: 'src/{images,favicons}/**/*.{jpg,jpeg,png}',
 		dest: 'build/'
 	},
 	html: {
-		src: ['**/*.{php,html}', '!{node_modules,build}/**/*.{php,html}'],
-		watch: ['./*.php', 'components/**/*.html'],
+		src: ['src/**/*.{php,html}', '!{node_modules,build}/**/*.{php,html}'],
+		watch: ['src/*.php', 'src/components/**/*.html'],
 		dest: 'build/'
 	}
 };
@@ -83,8 +83,8 @@ gulp.task('browser-sync', function() {
 // Build all
 gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], function() {
 	// Copy other required files to build
-	gulp.src('fonts/**.*').pipe(gulp.dest('build/fonts'));
-	gulp.src('favicons/**.{json,xml,ico,svg}').pipe(gulp.dest('build/favicons'));
+	gulp.src('src/fonts/**.*').pipe(gulp.dest('build/fonts'));
+	gulp.src('src/favicons/**.{json,xml,ico,svg}').pipe(gulp.dest('build/favicons'));
 
 	if ($.util.env.type === 'deploy') deploy();
 });
