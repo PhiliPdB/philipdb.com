@@ -66,9 +66,7 @@ function get_age($year, $month, $day) {
 	</div>
 
 	<!-- Footer -->
-	<footer class="card">
-		&copy; <?=date("Y")?> PhiliPdB
-	</footer>
+	<?php require('components/footer.html'); ?>
 
 	<!-- Scripts -->
 	<script src="js/script.js" type="text/javascript" charset="utf-8" async defer></script>
