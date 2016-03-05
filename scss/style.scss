@@ -13,7 +13,7 @@
 	// Smooth font hacks
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
 }
 
 .center {
@@ -40,7 +40,7 @@
 		bottom: 0;
 		right: 0;
 
-		background-color: #333;
+		background-color: $dark_grey;
 		background-image: url(../images/banner.jpeg);
 		background-repeat: no-repeat;
 		background-position: left center;
@@ -199,19 +199,19 @@
 		}
 		@media screen and (max-width: 500px) {
 			$card_width: 80vw;
-			$width: .49 * $card_width;
+			$width: .49 * $card_width; // 1/2 of width
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: $mobile_l) {
 			$card_width: 90vw;
-			$width: .49 * $card_width;
+			$width: .49 * $card_width; // 1/2 of width
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: $mobile_s) {
 			$card_width: 90vw;
-			$width: .99 * $card_width;
+			$width: .99 * $card_width; // Full width
 			width: $width;
 			height: $width;
 		}
