@@ -2,6 +2,7 @@
 // Enable PHP Gzip compression
 ob_start('ob_gzhandler');
 
+$current = 'home';
 function get_age($year, $month, $day) {
 	$age = date("Y") - $year;
 	if (date("m") < $month) $age -= 1;

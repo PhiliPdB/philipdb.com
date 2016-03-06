@@ -113,9 +113,18 @@ header {
 				display: block;
 				width: 100%;
 				height: 100%;
-				color: white;
+				color: $light_grey;
 				text-decoration: none;
 				padding: $padding_unit;
+				transition: color $animation;
+			}
+
+			&.current a {
+				color: white;
+			}
+
+			&:hover a {
+				color: white;
 			}
 		}
 
