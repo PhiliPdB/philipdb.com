@@ -50,6 +50,7 @@ function closeDrawer() {
 
 function handleDrawerClick(event) {
 	if (event.target != drawer && drawerOpen) {
+		event.preventDefault();
 		closeDrawer();
 	}
 }
