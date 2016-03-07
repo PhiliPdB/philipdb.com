@@ -9,7 +9,6 @@ $card_width: 60vw;
 	}
 
 	h2 {
-		margin-bottom: $padding_unit * 2;
 		font-size: 2.5em;
 
 		@media screen and (max-width: $mobile_s) {
@@ -17,10 +16,19 @@ $card_width: 60vw;
 		}
 	}
 
+	h4 {
+		color: rgba(0, 0, 0, .65);
+		font-style: italic;
+	}
+
 	p {
 		color: rgba(0, 0, 0, .54);
 		font-size: 1.1em;
 		padding: $padding_unit/2 0;
+
+		&:first-of-type {
+			margin-top: $padding_unit*2;
+		}
 
 		@media screen and (max-width: $mobile_s) {
 			font-size: 1.0em;
