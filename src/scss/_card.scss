@@ -1,7 +1,6 @@
 $card_width: 60vw;
 
 .card {
-	width: $card_width;
 	padding: $padding_unit (100vw - $card_width)/2;
 	margin: 0 auto;
 	color: $dark_text;
@@ -54,12 +53,10 @@ $card_width: 60vw;
 
 	@media screen and (max-width: 800px) {
 		$card_width: 80vw;
-		width: $card_width;
 		padding: $padding_unit (100vw - $card_width)/2;
 	}
 	@media screen and (max-width: $mobile_l) {
 		$card_width: 90vw;
-		width: $card_width;
 		padding: $padding_unit (100vw - $card_width)/2;
 	}
 }
