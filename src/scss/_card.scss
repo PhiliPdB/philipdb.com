@@ -52,9 +52,12 @@ $card_width: 60vw;
 			color: white;
 		}
 
+		@media screen and (max-width: $mobile_m) {
+			display: block;
+			margin: $padding_unit 0;
+		}
 		@media screen and (max-width: $mobile_s) {
 			padding: $padding_unit;
-			margin: $padding_unit 0;
 		}
 	}
 
