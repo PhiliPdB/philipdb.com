@@ -25,10 +25,6 @@ $current = 'projects';
 		<div class="background_image"></div>
 		<div id="title" class="center">
 			<h1>Projects</h1>
-			<!-- <div class="buttons">
-				<a href="contact">Contact</a>
-				<a href="skills">Skills</a>
-			</div> -->
 		</div>
 	</div>
 
