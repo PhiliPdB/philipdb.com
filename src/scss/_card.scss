@@ -2,7 +2,6 @@ $card_width: 60vw;
 
 .card {
 	padding: $padding_unit (100vw - $card_width)/2;
-	margin: 0 auto;
 	color: $dark_text;
 
 	&:nth-child(odd) {
