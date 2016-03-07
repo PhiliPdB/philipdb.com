@@ -50,6 +50,7 @@ $current = 'projects';
 		</p>
 		<a class="button" href="https://github.com/woording/woording-android" target="_blank">View Woording on Github</a>
 		<a class="button" href="https://play.google.com/apps/testing/com.woording.android" target="_blank">Sign up for Woording Beta</a>
+		<a class="button" href="https://woording.com" target="_blank">Go to Woording website</a>
 	</div>
 	
 	<!-- Footer -->
