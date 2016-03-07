@@ -1,6 +1,5 @@
 let drawer = document.getElementById('navigation_drawer');
 let drawerOpen = false;
-let timeoutID;
 
 window.onload = function() {
 	addEvent(document.body, 'click', handleDrawerClick);
@@ -59,8 +58,6 @@ const startPos = {
 	x: 0,
 	y: 0
 };
-const totalAnimationTime = 300;
-let startAnimationTime = 0;
 let startedSwipe = false;
 let drawerWidth;
 function setupSwipeDrawer() {
