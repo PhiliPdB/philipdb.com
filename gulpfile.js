@@ -11,7 +11,6 @@ var gulp = require('gulp'),
 	ftp = require('vinyl-ftp'),
 	del = require('del');
 
-var cachebust = new $.cachebust();
 var paths = {
 	styles: {
 		src: 'src/scss/**/*.scss',
@@ -98,7 +97,6 @@ gulp.task('build:html', function() {
 				path.basename = 'index';
 			}
 		}))
-		.pipe($.util.env.type === 'deploy' ? cachebust.references() : $.util.noop())
 		.pipe(gulp.dest(paths.html.dest))
 });
 
@@ -109,7 +107,6 @@ gulp.task('build:scss', function() {
 		.pipe($.autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
 		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.cssnano() : $.util.noop())
-		.pipe($.util.env.type === 'deploy' ? cachebust.resources() : $.util.noop())
 		.pipe(gulp.dest(paths.styles.dest))
 		.pipe(browserSync.reload({
 			stream: true
@@ -129,7 +126,6 @@ gulp.task('build:js', function() {
 		.pipe($.concat('script.js'))
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
 		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.uglify() : $.util.noop())
-		.pipe($.util.env.type === 'deploy' ? cachebust.resources() : $.util.noop())
 		.pipe(gulp.dest(paths.scripts.dest))
 		.pipe(browserSync.reload({
 			stream: true

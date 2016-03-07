@@ -9,6 +9,9 @@ function get_age($year, $month, $day) {
 	elseif (date("m") == $month && date("d") < $day) $age -= 1;
 	return $age;
 }
+function version($file) {
+	return $file . '?' . filemtime($file);
+}
  ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +20,7 @@ function get_age($year, $month, $day) {
 	
 	<title>PhiliPdB - About me</title>
 	
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="<?=version('../css/style.css')?>">
 
 	<!-- Favicons -->
 	<?php include('../favicons.html') ?>
@@ -50,6 +53,6 @@ function get_age($year, $month, $day) {
 	<?php require('../components/footer.html'); ?>
 	
 	<!-- Scripts -->
-	<script src="../js/script.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=version('../js/script.js')?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

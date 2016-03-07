@@ -3,6 +3,9 @@
 ob_start('ob_gzhandler');
 
 $current = 'projects';
+function version($file) {
+	return $file . '?' . filemtime($file);
+}
  ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +14,7 @@ $current = 'projects';
 
 	<title>PhiliPdB - Projects</title>
 
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="<?=version('../css/style.css')?>">
 
 	<!-- Favicons -->
 	<?php include('../favicons.html') ?>
@@ -53,6 +56,6 @@ $current = 'projects';
 	<?php require('../components/footer.html'); ?>
 	
 	<!-- Scripts -->
-	<script src="../js/script.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=version('../js/script.js')?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
