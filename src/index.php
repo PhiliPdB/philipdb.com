@@ -39,14 +39,14 @@ function get_age($year, $month, $day) {
 
 	<!-- Cards -->
 	<div id="about" class="card">
-		<h1>About me</h1>
+		<h2>About me</h2>
 		<p>
 			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I'm <?=get_age(1999,06,19)?> and I have developed multiple websites and Android apps. Sometimes it's hard to combine developing and school, but so far it has succeeded...
 		</p>
 		<a class="button" href="about">Learn more about me</a>
 	</div>
 	<div id="projects" class="card">
-		<h1>Latest projects</h1>
+		<h2>Latest projects</h2>
 		<div class="projects">
 			<div class="project" id="mastermind">
 				<img src="images/projects/mastermind.png" alt="MasterMind" width="512" height="512">
