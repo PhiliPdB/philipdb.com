@@ -40,6 +40,11 @@ header, footer {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+
+	@media screen and (max-width: $mobile_l) {
+		top: percentage(2/3);
+		transform: translate(-50%, percentage(-2/3));
+	}
 }
 
 // Header
@@ -47,7 +52,7 @@ header, footer {
 
 #home {
 	position: relative;
-	height: 43.75vw;
+	height: calc(40vw + #{$header_height});
 	max-height: 90vh;
 	overflow: hidden;
 
@@ -119,6 +124,10 @@ header, footer {
 					font-size: 1.1em;
 				}
 			}
+		}
+
+		@media screen and (max-width: $mobile_l) {
+			width: 100%;
 		}
 	}
 }
