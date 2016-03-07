@@ -21,6 +21,7 @@ $card_width: 60vw;
 		color: black;
 		opacity: .54;
 		font-size: 1.1em;
+		padding: $padding_unit 0;
 
 		@media screen and (max-width: $mobile_s) {
 			font-size: 1.0em;
