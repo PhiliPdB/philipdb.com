@@ -14,6 +14,10 @@ function get_age($year, $month, $day) {
 <html>
 <head>
 	<?php require('metatags.html'); ?>
+	<!-- Search engine stuff -->
+	<meta name="author" content="PhiliPdB">
+	<meta name="description" content="My personal website" />
+	<meta name="keywords" content="personal, website, philipdb, open, source" />
 	
 	<title>PhiliPdB</title>
 	
