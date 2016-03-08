@@ -49,6 +49,9 @@ function version($file) {
 				<h3>Experience with</h3>
 				<ul>
 					<li>GulpJS</li>
+					<li>&#40;Material&#41; AngularJS</li>
+					<li>Arduino</li>
+					<li>Databases &#40;SQL&#41;</li>
 					<li>Responsive Layout and Design</li>
 					<li>Cross&#45;Browser Compatibility</li>
 				</ul>
