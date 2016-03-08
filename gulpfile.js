@@ -25,7 +25,7 @@ var paths = {
 		dest: 'build/'
 	},
 	html: {
-		src: ['src/**/*.{php,html}', '!{node_modules,build}/**/*.{php,html}'],
+		src: 'src/**/*.{php,html}',
 		watch: ['src/*.php', 'src/components/**/*.html'],
 		dest: 'build/'
 	}
