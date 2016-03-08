@@ -50,7 +50,7 @@ function closeDrawer() {
 }
 
 function handleDrawerClick(event) {
-	if (event.target != drawer && drawerOpen) {
+	if (!(event.target == drawer || drawer.contains(event.target)) && drawerOpen) {
 		// Close drawer when open and tapping outside of it
 		event.preventDefault();
 		closeDrawer();
@@ -67,8 +67,8 @@ function setupSwipeDrawer() {
 	// Touch start
 	addEvent(document.body, 'touchstart', event => {
 		const touch = event.targetTouches[0];
-		// Only initialize when drawer is open or when tapping in specific area
-		if (drawerOpen || !drawerOpen && touch.pageX < 24) {
+		// Only initialize when drawer is open or when tapping in specific area and when screen is small enough
+		if (drawerOpen || !drawerOpen && touch.pageX < 24 && window.innerWidth <= 540) {
 			// Initialize
 			startPos.x = touch.pageX;
 			startPos.y = touch.pageY;
