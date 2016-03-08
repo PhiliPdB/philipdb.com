@@ -3,16 +3,17 @@ let drawerOpen = false;
 
 window.onload = function() {
 	addEvent(document.body, 'click', handleDrawerClick);
-	addEvent(window, 'scroll', updateHeaderBackground);
 	
+	addEvent(window, 'scroll', updateHeaderBackground);
 	updateHeaderBackground();
+	
 	setupSwipeDrawer();
 }
 
 function updateHeaderBackground(event) {
-	let header = document.getElementById('header_background');
-	let banner = document.getElementById('home');
-	let scrollTop = window.scrollY;
+	const header = document.getElementById('header_background');
+	const banner = document.getElementById('home');
+	const scrollTop = window.scrollY;
 	let offset = 0;
 	let node = banner;
 	while (node) {
@@ -22,7 +23,7 @@ function updateHeaderBackground(event) {
 	const height = banner.offsetHeight;
 
 	offset += height;
-	let calc = (scrollTop - offset + height) / height;
+	const calc = (scrollTop - offset + height) / height;
 
 	header.style.opacity = calc;
 	if (calc > 1) {
@@ -50,6 +51,7 @@ function closeDrawer() {
 
 function handleDrawerClick(event) {
 	if (event.target != drawer && drawerOpen) {
+		// Close drawer when open and tapping outside of it
 		event.preventDefault();
 		closeDrawer();
 	}
@@ -62,9 +64,12 @@ const startPos = {
 let startedSwipe = false;
 let drawerWidth;
 function setupSwipeDrawer() {
+	// Touch start
 	addEvent(document.body, 'touchstart', event => {
 		const touch = event.targetTouches[0];
+		// Only initialize when drawer is open or when tapping in specific area
 		if (drawerOpen || !drawerOpen && touch.pageX < 24) {
+			// Initialize
 			startPos.x = touch.pageX;
 			startPos.y = touch.pageY;
 			drawerWidth = drawer.offsetWidth;
@@ -75,12 +80,14 @@ function setupSwipeDrawer() {
 	addEvent(document.body, 'touchmove', event => {
 		const touch = event.targetTouches[0];
 		if (startedSwipe && drawerOpen && touch.pageX < startPos.x) {
+			// Set correct transforms
 			let position = Math.min(30 + touch.pageX - (startPos.x - drawerWidth), drawerWidth + 30);
 			drawer.style.transition = 'none';
 			drawer.style.webkitTransition = 'none';
 			drawer.style.transform = `translate(${position}px, 0)`;
 			drawer.style.webkitTransform = `translate(${position}px, 0)`;
 		} else if (startedSwipe && !drawerOpen && touch.pageX > startPos.x) {
+			// Set correct transforms
 			let position = Math.min(30 + touch.pageX - startPos.x, drawerWidth + 30)
 			drawer.style.transition = 'none';
 			drawer.style.webkitTransition = 'none';
@@ -114,7 +121,7 @@ function setupSwipeDrawer() {
 }
 
 // This is a function from https://github.com/remy/html5demos
-const addEvent = ((() => {
+const addEvent = (() => {
 	if (document.addEventListener) {
 		return (el, type, fn) => {
 			if (el && el.nodeName || el === window) {
@@ -136,4 +143,4 @@ const addEvent = ((() => {
 			}
 		};
 	}
-}))();
+})();

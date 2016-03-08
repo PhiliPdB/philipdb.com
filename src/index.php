@@ -30,6 +30,7 @@ function version($file) {
 	<?php include('favicons.html') ?>
 </head>
 <body>
+	<!-- Header -->
 	<?php require('components/header.html') ?>
 
 	<!-- Banner -->
