@@ -54,7 +54,7 @@ function version($file) {
 				</ul>
 			</div>
 		</div>
-		<a class="button" href="/contanct">Want to contact me?</a>
+		<a class="button" href="/contact">Want to contact me?</a>
 	</div>
 
 	<!-- Footer -->
