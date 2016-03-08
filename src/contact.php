@@ -22,7 +22,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 
  ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<?php require('../metatags.html'); ?>
 	

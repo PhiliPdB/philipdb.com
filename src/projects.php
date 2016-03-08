@@ -8,7 +8,7 @@ function version($file) {
 }
  ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 	<?php require('../metatags.html'); ?>
 
