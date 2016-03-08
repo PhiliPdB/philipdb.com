@@ -1,4 +1,5 @@
 $card_width: 60vw;
+$paragraph_text: rgba(0, 0, 0, .54);
 
 .card {
 	padding: $padding_unit (100vw - $card_width)/2;
@@ -16,13 +17,17 @@ $card_width: 60vw;
 		}
 	}
 
+	h3 {
+		color: rgba(0, 0, 0, .75);
+	}
+
 	h4 {
 		color: rgba(0, 0, 0, .65);
 		font-style: italic;
 	}
 
 	p {
-		color: rgba(0, 0, 0, .54);
+		color: $paragraph_text;
 		font-size: 1.1em;
 		padding: $padding_unit/2 0;
 
@@ -32,6 +37,29 @@ $card_width: 60vw;
 
 		@media screen and (max-width: $mobile_s) {
 			font-size: 1.0em;
+		}
+	}
+
+	// Column setup
+	div.columns {
+		// Flexbox setup
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+		align-content: flex-start;
+
+		&:first-of-type {
+			margin-top: $padding_unit*2;
+		}
+	}
+
+	ul {
+		padding-top: $padding_unit/2;
+		padding-bottom: $padding_unit/2;
+
+		li {
+			color: $paragraph_text;
 		}
 	}
 
