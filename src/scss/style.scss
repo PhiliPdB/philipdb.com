@@ -1,5 +1,6 @@
 @import 'variables';
 @import 'fonts';
+@import 'inputs';
 
 @mixin blur($blur_distance) {
 	filter: blur($blur_distance);

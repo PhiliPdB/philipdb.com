@@ -44,10 +44,8 @@ $header_break: 540px;
 		}
 
 		hr {
-			border-width: 0;
-			border-bottom-width: 1px;
-			border-style: solid;
-			border-color: $lighter_grey;
+			border: none;
+			border-bottom: 1px solid $lighter_grey;
 		}
 	}
 }
