@@ -32,13 +32,18 @@ function version($file) {
 	</div>
 
 	<div class="card">
-		<h4>Main pages</h4>
+		<h3>Main pages</h3>
 		<ul class="links">
 			<li><a href="/">Home</a></li>
 			<li><a href="/about">About me</a></li>
 			<li><a href="/projects">My projects</a></li>
 			<li><a href="/skills">Skils</a></li>
 			<li><a href="/contact">Contact</a></li>
+		</ul>
+		<h3>Projects</h3>
+		<ul class="links">
+			<li><a href="/projects#mastermind">Mastermind</a></li>
+			<li><a href="/projects#woording">Woording</a></li>
 		</ul>
 	</div>
 
