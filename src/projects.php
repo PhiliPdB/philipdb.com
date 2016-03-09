@@ -32,7 +32,7 @@ function version($file) {
 	</div>
 
 	<!-- Cards -->
-	<div id="mastermind" class="card">
+	<div id="mastermind" class="card anchor">
 		<h2>MasterMind</h2>
 		<h4>Web app</h4>
 		<p>
@@ -41,7 +41,7 @@ function version($file) {
 		<a class="button" href="https://github.com/PhiliPdB/MasterMind" target="_blank">View MasterMind on Github</a>
 		<a class="button" href="//projects.philipdb.com/mastermind" target="_blank">Play MasterMind</a>
 	</div>
-	<div id="woording" class="card">
+	<div id="woording" class="card anchor">
 		<h2>Woording Android</h2>
 		<h4>Android app</h4>
 		<p>

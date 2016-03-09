@@ -5,6 +5,11 @@ $paragraph_text: rgba(0, 0, 0, .54);
 	padding: $padding_unit (100vw - $card_width)/2;
 	color: $dark_text;
 
+	&.anchor {
+		padding-top: $padding_unit+$header_height;
+		margin-top: -$header_height;
+	}
+
 	&:nth-child(odd) {
 		background-color: $lighter_grey;
 	}
