@@ -35,7 +35,7 @@ function version($file) {
 	<div id="mastermind" class="card anchor">
 		<h2>MasterMind</h2>
 		<h4>Web app</h4>
-		<p>
+		<p class="first">
 			This was a school assignment, where we (a friend and I) chose to create a Mastermind game. It was not very hard to create. Except the mobile version, because we couldn't use HTML5's Drag &amp; Drop API. So we had to use the Touch API to simulate drag &amp; drop.
 		</p>
 		<a class="button" href="https://github.com/PhiliPdB/MasterMind" target="_blank">View MasterMind on Github</a>
@@ -44,7 +44,7 @@ function version($file) {
 	<div id="woording" class="card anchor">
 		<h2>Woording Android</h2>
 		<h4>Android app</h4>
-		<p>
+		<p class="first">
 			Me and two friends decided to create a service that helps you learn words. Actually they asked me to join. At first we created an API and a website, but that website wasn't great so they started to recreate the website, while I began working on the Android app. This app is still in beta, so the only way to get this is by signing up for the beta.
 		</p>
 		<a class="button" href="https://github.com/woording/woording-android" target="_blank">View Woording on Github</a>

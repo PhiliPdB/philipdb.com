@@ -33,7 +33,7 @@ function version($file) {
 
 	<div class="card">
 		<h2>Technologies</h2>
-		<div class="columns">
+		<div class="columns first">
 			<div>
 				<h3>Day&#45;to&#45;day comfort</h3>
 				<ul>

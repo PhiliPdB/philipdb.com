@@ -48,7 +48,7 @@ function version($file) {
 	<!-- Cards -->
 	<div id="about" class="card">
 		<h2>About me</h2>
-		<p>
+		<p class="first">
 			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I'm <?=get_age(1999,06,19)?> and I have developed multiple websites and Android apps. Sometimes it's hard to combine developing and school, but so far it has succeeded...
 		</p>
 		<a class="button" href="about">Learn more about me</a>
