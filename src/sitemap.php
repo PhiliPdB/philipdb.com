@@ -11,6 +11,10 @@ function version($file) {
 <html lang="en">
 <head>
 	<?php require('../metatags.html'); ?>
+	<!-- Search engine stuff -->
+	<meta name="author" content="PhiliPdB">
+	<meta name="description" content="sitemap of philipdb.com" />
+	<meta name="keywords" content="sitemap, personal, website, philipdb, open, source, philip, de, bruin" />
 	
 	<title>Sitemap</title>
 	

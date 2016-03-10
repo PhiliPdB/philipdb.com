@@ -17,8 +17,12 @@ function version($file) {
 <html lang="en">
 <head>
 	<?php require('../metatags.html'); ?>
+	<!-- Search engine stuff -->
+	<meta name="author" content="PhiliPdB">
+	<meta name="description" content="Page about PhiliPdB" />
+	<meta name="keywords" content="personal, website, philipdb, open, source, philip, de, bruin, about, me" />
 	
-	<title>PhiliPdB - About me</title>
+	<title>About me</title>
 	
 	<link rel="stylesheet" href="<?=version('../css/style.css')?>">
 

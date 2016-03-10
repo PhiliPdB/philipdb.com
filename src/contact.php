@@ -25,8 +25,12 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 <html lang="en">
 <head>
 	<?php require('../metatags.html'); ?>
+	<!-- Search engine stuff -->
+	<meta name="author" content="PhiliPdB">
+	<meta name="description" content="Contact information of PhiliPdB" />
+	<meta name="keywords" content="contact, personal, website, philipdb, open, source, philip, de, bruin" />
 	
-	<title>PhiliPdB - Contact</title>
+	<title>Contact</title>
 	
 	<link rel="stylesheet" href="<?=version('../css/style.css')?>">
 
