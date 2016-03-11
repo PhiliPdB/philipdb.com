@@ -42,10 +42,10 @@ function version($file) {
 	</div>
 
 	<div class="card">
+		<h4>In short</h4>
 		<p>
 			I'm a Dutch, <?=get_age(1999,06,19)?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
 		</p>
-		
 	</div>
 	<div class="card">
 		<p>

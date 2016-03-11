@@ -36,15 +36,6 @@ $font-size: 18px;
 			animation: inputHighLighter $animation;
 		}
 
-		&:focus:invalid ~ label {
-			top: -20px;
-			font-size: 14px;
-			color: #F44336;
-		}
-		&:focus:invalid ~ .bar:before, &:focus:invalid ~ .bar:after {
-			background-color: #F44336;
-		}
-
 		@media sceen and (max-width: $input_width) {
 			width: calc(100% - 15px);
 		}

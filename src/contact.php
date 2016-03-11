@@ -8,13 +8,14 @@ function version($file) {
 }
 
 // Send
-if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['body'])) {
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['body'])
+	&& filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 	mail(
 		"philip@philipdb.com",
 		$_POST['subject'],
 		$_POST['body'],
-		"From: philipdb.com <noreply@philipdb.com>" . '\r\n' .
-		"Reply-to: " . $_POST['email'] . '\r\n' .
+		"From: philipdb.com <noreply@philipdb.com>" . "\r\n" .
+		"Reply-to: " . $_POST['email'] . "\r\n" .
 		"X-Mailer: PHP/" . phpversion()
 	);
 	$_POST = array();
@@ -50,7 +51,11 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 	</div>
 
 	<div class="card">
-		<h2>Contact me</h2>
+		<p>If you want an Android app or a website. I can do it all for you, so feel free to email me or fill in the form below.</p>
+		<a class="button" href="email:philip@philipdb.com">Email me</a>
+	</div>
+	<div class="card">
+		<h2>Contact form</h2>
 		<form action="" method="POST">
 			<div class="group">
 				<input type="text" required name="name" autocomplete>
