@@ -84,6 +84,7 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], fu
 	// Copy other required files to build
 	gulp.src('src/fonts/**.*').pipe(gulp.dest('build/fonts'));
 	gulp.src('src/favicons/**.{json,xml,ico,svg}').pipe(gulp.dest('build/favicons'));
+	gulp.src('src/robots.txt').pipe(gulp.dest('build/'));
 
 	if ($.util.env.type === 'deploy') deploy();
 });
