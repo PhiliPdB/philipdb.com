@@ -92,7 +92,7 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], ()
 // HTML/php stuff
 gulp.task('build:html', () => {
 	gulp.src(paths.html.src)
-		.pipe($.rename(function (path) {
+		.pipe($.rename((path) => {
 			if (path.dirname === '.' && path.extname === '.php' && path.basename !== 'index') {
 				path.dirname = path.basename;
 				path.basename = 'index';
