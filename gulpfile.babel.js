@@ -1,17 +1,17 @@
-'use strict';
+import gulp from 'gulp';
+import gulpLoadPlugins from 'gulp-load-plugins';
+import browserSync from 'browser-sync';
+import pngquant from 'imagemin-pngquant';
+import ftp from 'vinyl-ftp';
+import del from 'del';
 
-var gulp = require('gulp'),
-	$ = require('gulp-load-plugins')({
-		rename: {
-			'gulp-connect-php': 'phpConnect'
-		}
-	}),
-	browserSync = require('browser-sync'),
-	pngquant = require('imagemin-pngquant'),
-	ftp = require('vinyl-ftp'),
-	del = require('del');
+const $ = gulpLoadPlugins({
+	rename: {
+		'gulp-connect-php': 'phpConnect'
+	}
+});
 
-var paths = {
+const paths = {
 	styles: {
 		src: 'src/scss/**/*.scss',
 		dest: 'build/css/'
@@ -30,7 +30,7 @@ var paths = {
 		dest: 'build/'
 	}
 };
-var liveReloadFiles = [
+const liveReloadFiles = [
 	'build/css/**/*.css',
 	'build/js/**/*.js',
 	'build/images/**/*.{png,jpg,jpeg}',
@@ -42,7 +42,7 @@ gulp.task('default', ['serve', 'watch']);
 
 gulp.task('serve', ['connect', 'browser-sync']);
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
 	gulp.watch(paths.styles.src, ['build:scss']);
 	gulp.watch(paths.scripts.src, ['eslint', 'build:js']);
 	gulp.watch(paths.images.src, ['minify-images']);
@@ -50,7 +50,7 @@ gulp.task('watch', function() {
 });
 
 // Start the server
-gulp.task('connect', function() {
+gulp.task('connect', () => {
 	// PHP server (will be proxied)
 	$.phpConnect.server({
 		base: './build/',
@@ -59,7 +59,7 @@ gulp.task('connect', function() {
 	});
 });
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', () => {
 	browserSync({
 		files: liveReloadFiles,
 		proxy: 'localhost:6000',
@@ -71,7 +71,7 @@ gulp.task('browser-sync', function() {
     			port: 8000
     		}
     	}
-	}, function (err, bs) {
+	}, (err, bs) => {
 		if (err)
 			console.log(err);
 		else
@@ -80,7 +80,7 @@ gulp.task('browser-sync', function() {
 });
 
 // Build all
-gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], function() {
+gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], () => {
 	// Copy other required files to build
 	gulp.src('src/fonts/**.*').pipe(gulp.dest('build/fonts'));
 	gulp.src('src/favicons/**.{json,xml,ico,svg}').pipe(gulp.dest('build/favicons'));
@@ -90,7 +90,7 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], fu
 });
 
 // HTML/php stuff
-gulp.task('build:html', function() {
+gulp.task('build:html', () => {
 	gulp.src(paths.html.src)
 		.pipe($.rename(function (path) {
 			if (path.dirname === '.' && path.extname === '.php' && path.basename !== 'index') {
@@ -102,7 +102,7 @@ gulp.task('build:html', function() {
 });
 
 // scss stuff
-gulp.task('build:scss', function() {
+gulp.task('build:scss', () => {
 	gulp.src(paths.styles.src)
 		.pipe($.sass().on('error', $.sass.logError))
 		.pipe($.autoprefixer())
@@ -115,13 +115,13 @@ gulp.task('build:scss', function() {
 });
 
 // JS stuff
-gulp.task('eslint', function() {
+gulp.task('eslint', () => {
 	gulp.src(paths.scripts.src)
 		.pipe($.eslint('.eslintrc'))
 		.pipe($.eslint.format());
 });
 
-gulp.task('build:js', function() {
+gulp.task('build:js', () => {
 	gulp.src(paths.scripts.src)
 		.pipe($.babel())
 		.pipe($.concat('script.js'))
@@ -134,7 +134,7 @@ gulp.task('build:js', function() {
 });
 
 // Images
-gulp.task('minify-images', function () {
+gulp.task('minify-images', () => {
 	gulp.src(paths.images.src)
 		.pipe($.imagemin({
 			progressive: true,
@@ -146,15 +146,15 @@ gulp.task('minify-images', function () {
 // Deploying
 gulp.task('deploy', deploy);
 function deploy() {
-	var config = require('./config.json');
-	var connection = ftp.create({
+	const config = require('./config.json');
+	const connection = ftp.create({
 		host: config.host,
 		user: config.user,
 		password: config.password,
 		log: $.util.log
 	});
 
-	var globs = 'build/**'
+	const globs = 'build/**'
 
 	// using base = './build' will transfer everything to folder correctly 
 	// turn off buffering in gulp.src for best performance 
@@ -166,6 +166,6 @@ function deploy() {
 // MISC
 gulp.task('rebuild', ['clear:build', 'build']);
 
-gulp.task('clear:build', function(done) {
+gulp.task('clear:build', done => {
 	return del('build');
 });
