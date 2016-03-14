@@ -110,6 +110,7 @@ $font-size: 18px;
 input[type="submit"] {
 	display: inline-block;
 	border: $padding_unit / 2 solid $dark_text;
+	border-radius: 0;
 	padding: $padding_unit * 2;
 	margin: $padding_unit * 2 0;
 	cursor: pointer;
