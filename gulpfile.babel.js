@@ -92,6 +92,7 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], ()
 // HTML/php stuff
 gulp.task('build:html', () => {
 	gulp.src(paths.html.src)
+		.pipe($.changed(paths.html.dest))
 		.pipe($.rename((path) => {
 			if (path.dirname === '.' && path.extname === '.php' && path.basename !== 'index') {
 				path.dirname = path.basename;
@@ -99,11 +100,17 @@ gulp.task('build:html', () => {
 			}
 		}))
 		.pipe(gulp.dest(paths.html.dest))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
 });
 
 // scss stuff
 gulp.task('build:scss', () => {
 	gulp.src(paths.styles.src)
+		.pipe($.changed(paths.styles.dest, {
+			extension: '.css'
+		}))
 		.pipe($.sass().on('error', $.sass.logError))
 		.pipe($.autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
@@ -123,6 +130,7 @@ gulp.task('eslint', () => {
 
 gulp.task('build:js', () => {
 	gulp.src(paths.scripts.src)
+		.pipe($.changed(paths.scripts.dest))
 		.pipe($.babel())
 		.pipe($.concat('script.js'))
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
@@ -136,6 +144,7 @@ gulp.task('build:js', () => {
 // Images
 gulp.task('minify-images', () => {
 	gulp.src(paths.images.src)
+		.pipe($.changed(paths.images.dest))
 		.pipe($.imagemin({
 			progressive: true,
 			use: [pngquant()]
