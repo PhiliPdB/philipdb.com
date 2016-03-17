@@ -24,6 +24,9 @@ function version($file) {
 	<?php include('../favicons.html') ?>
 </head>
 <body>
+	<!-- Google Analytics -->
+	<?php include_once("../analytics.html"); ?>
+
 	<!-- Header -->
 	<?php require('../components/header.html'); ?>
 
