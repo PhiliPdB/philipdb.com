@@ -81,10 +81,16 @@ gulp.task('browser-sync', () => {
 
 // Build all
 gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], () => {
-	// Copy other required files to build
-	gulp.src('src/fonts/**.*').pipe(gulp.dest('build/fonts'));
-	gulp.src('src/favicons/**.{json,xml,ico,svg}').pipe(gulp.dest('build/favicons'));
-	gulp.src('src/robots.txt').pipe(gulp.dest('build/'));
+	// Copy other required files to build if changed
+	gulp.src('src/fonts/**.*')
+		.pipe($.changed('build/fonts'))
+		.pipe(gulp.dest('build/fonts'));
+	gulp.src('src/favicons/**.{json,xml,ico,svg}')
+		.pipe($.changed('build/favicons'))
+		.pipe(gulp.dest('build/favicons'));
+	gulp.src('src/robots.txt')
+		.pipe($.changed('build/'))
+		.pipe(gulp.dest('build/'));
 
 	if ($.util.env.type === 'deploy') deploy();
 });
