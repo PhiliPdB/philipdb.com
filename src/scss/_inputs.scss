@@ -1,6 +1,7 @@
 $tint_color: #333;
 $input_width: 300px;
 $font-size: 18px;
+$error_color: #f44336;
 
 .group {
 	display: inline-block;
@@ -34,6 +35,17 @@ $font-size: 18px;
 		}
 		&:focus ~ .highlight {
 			animation: inputHighLighter $animation;
+		}
+
+		// Validate if has validate class
+		&.validate:invalid ~ label {
+			top: -20px;
+			font-size: 14px;
+			color: $error_color;
+		}
+		&.validate:invalid ~ .bar:before, &.validate:invalid ~ .bar:after {
+			width: 50%;
+			background-color: $error_color;
 		}
 
 		@media screen and (max-width: $input_width + 15px) {
