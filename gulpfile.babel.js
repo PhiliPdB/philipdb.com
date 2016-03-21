@@ -114,9 +114,6 @@ gulp.task('build:html', () => {
 // scss stuff
 gulp.task('build:scss', () => {
 	gulp.src(paths.styles.src)
-		.pipe($.changed(paths.styles.dest, {
-			extension: '.css'
-		}))
 		.pipe($.sass().on('error', $.sass.logError))
 		.pipe($.autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
