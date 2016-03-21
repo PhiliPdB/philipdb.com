@@ -39,6 +39,12 @@ function version($file) {
 			The page you are looking for does not exist.
 		</p>
 	</div>
+	<div class="card">
+		<h2>Find what you are looking for</h2>
+		<div id="search">
+			<?php require('../cse.html') ?>
+		</div>
+	</div>
 
 	<!-- Footer -->
 	<?php require('../components/footer.html'); ?>
