@@ -36,7 +36,7 @@ $font-size: 18px;
 			animation: inputHighLighter $animation;
 		}
 
-		@media sceen and (max-width: $input_width) {
+		@media screen and (max-width: $input_width + 15px) {
 			width: calc(100% - 15px);
 		}
 	}
@@ -79,7 +79,7 @@ $font-size: 18px;
 			right: 50%;
 		}
 
-		@media sceen and (max-width: $input_width) {
+		@media screen and (max-width: $input_width + 15px) {
 			width: 100%;
 		}
 	}
@@ -93,7 +93,7 @@ $font-size: 18px;
 		pointer-events: none;
 		opacity: .5;
 
-		@media sceen and (max-width: $input_width) {
+		@media screen and (max-width: $input_width + 15px) {
 			width: percentage(1/3);
 		}
 	}
