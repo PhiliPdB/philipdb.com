@@ -1,4 +1,4 @@
-let drawer = document.getElementById('navigation_drawer');
+const drawer = document.getElementById('navigation_drawer');
 let drawerOpen = false;
 
 window.onload = function() {
