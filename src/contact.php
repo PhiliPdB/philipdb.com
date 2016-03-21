@@ -55,7 +55,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 
 	<div class="card">
 		<p>If you want an Android app or a website. I can do it all for you, so feel free to email me or fill in the form below.</p>
-		<a class="button" href="email:philip@philipdb.com">Email me</a>
+		<a class="button" href="mailto:philip@philipdb.com">Email me</a>
 	</div>
 	<div class="card">
 		<h2>Contact form</h2>
