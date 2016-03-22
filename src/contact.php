@@ -29,7 +29,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 	<!-- Search engine stuff -->
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="Contact information of PhiliPdB" />
-	<meta name="keywords" content="contact, personal, website, philipdb, open, source, philip, de, bruin" />
+	<meta name="keywords" content="contact, email, personal, website, philipdb, open, source, philip, de, bruin" />
 	
 	<title>Contact</title>
 	

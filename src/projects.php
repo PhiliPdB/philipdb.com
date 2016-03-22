@@ -14,7 +14,7 @@ function version($file) {
 	<!-- Search engine stuff -->
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="Some projects of PhiliPdB" />
-	<meta name="keywords" content="projeccts, personal, website, philipdb, open, source, philip, de, bruin" />
+	<meta name="keywords" content="web, android, projects, personal, website, philipdb, open, source, philip, de, bruin" />
 
 	<title>Projects</title>
 

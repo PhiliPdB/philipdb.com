@@ -19,8 +19,8 @@ function version($file) {
 	<?php require('../metatags.html'); ?>
 	<!-- Search engine stuff -->
 	<meta name="author" content="PhiliPdB">
-	<meta name="description" content="Page about PhiliPdB" />
-	<meta name="keywords" content="personal, website, philipdb, open, source, philip, de, bruin, about, me" />
+	<meta name="description" content="This is all about me, PhiliPdB" />
+	<meta name="keywords" content="about, who, i, am, me, personal, website, philipdb, open, source, philip, de, bruin" />
 	
 	<title>About me</title>
 	
