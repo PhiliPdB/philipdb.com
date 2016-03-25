@@ -1,5 +1,6 @@
 $header_height: 56px;
 $header_break: 540px;
+$link_font_size: 20px;
 
 #navigation_drawer {
 	position: fixed;
@@ -28,7 +29,7 @@ $header_break: 540px;
 		align-content: flex-start;
 
 		.link {
-			font-size: 20px;
+			font-size: $link_font_size;
 			line-height: $header_height - $padding_unit * 2;
 
 			a {
@@ -104,7 +105,7 @@ header {
 		align-content: center;
 
 		.link {
-			font-size: 20px;
+			font-size: $link_font_size;
 			line-height: $header_height - $padding_unit * 2;
 
 			a {
