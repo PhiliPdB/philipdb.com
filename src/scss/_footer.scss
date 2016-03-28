@@ -5,20 +5,30 @@ footer.card {
 
 	.navigation {
 		// Flexbox setup
-		display: flex;
+		display: inline-flex;
 		flex-flow: row wrap;
 		justify-content: center;
 		align-items: stretch;
 		align-content: center;
 
 		.link {
-			padding: $padding_unit;
 			font-size: $link_font_size;
 
 			a {
+				display: block;
 				color: white;
 				text-decoration: none;
+				padding: $padding_unit;
+				transition: color $animation;
+
+				&:hover {
+					color: white !important;
+				}
 			}
+		}
+
+		&:hover .link a {
+			color: $light_grey;
 		}
 	}
 
