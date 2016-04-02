@@ -4,10 +4,13 @@ $paragraph_text: rgba(0, 0, 0, .54);
 .card {
 	padding: $padding_unit (100vw - $card_width)/2;
 	color: $dark_text;
+	background-color: white;
+	z-index: 2;
 
-	&.anchor {
-		padding-top: $padding_unit+$header_height;
+	&:target {
+		background-clip: padding-box;
 		margin-top: -$header_height;
+		border-top: $header_height solid transparent;
 	}
 
 	&:nth-child(odd) {

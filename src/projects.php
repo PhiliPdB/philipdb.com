@@ -13,7 +13,7 @@ function version($file) {
 	<?php require('../metatags.html'); ?>
 	<!-- Search engine stuff -->
 	<meta name="author" content="PhiliPdB">
-	<meta name="description" content="Some projects of PhiliPdB" />
+	<meta name="description" content="Some projects made by PhiliPdB" />
 	<meta name="keywords" content="web, android, projects, personal, website, philipdb, open, source, philip, de, bruin" />
 
 	<title>Projects</title>
@@ -39,7 +39,7 @@ function version($file) {
 	</div>
 
 	<!-- Cards -->
-	<div id="mastermind" class="card anchor">
+	<div id="mastermind" class="card">
 		<h2>MasterMind</h2>
 		<h4>Web app</h4>
 		<p class="first">
@@ -48,7 +48,7 @@ function version($file) {
 		<a class="button" href="https://github.com/PhiliPdB/MasterMind" target="_blank">View MasterMind on Github</a>
 		<a class="button" href="//projects.philipdb.com/mastermind" target="_blank">Play MasterMind</a>
 	</div>
-	<div id="woording" class="card anchor">
+	<div id="woording" class="card">
 		<h2>Woording Android</h2>
 		<h4>Android app</h4>
 		<p class="first">
@@ -57,6 +57,14 @@ function version($file) {
 		<a class="button" href="https://github.com/woording/woording-android" target="_blank">View Woording on Github</a>
 		<a class="button" href="https://play.google.com/apps/testing/com.woording.android" target="_blank">Sign up for Woording Beta</a>
 		<a class="button" href="https://woording.com" target="_blank">Go to Woording website</a>
+	</div>
+	<div id="more" class="card">
+		<h2>More projects</h2>
+		<h4>Web apps</h4>
+		<p class="first">
+			These are not my only projects. You can view more by clicking on the button below.
+		</p>
+		<a class="button" href="//projects.philipdb.com" target="_blank">Projects website</a>
 	</div>
 	
 	<!-- Footer -->
