@@ -166,13 +166,14 @@ function deploy() {
 		log: $.util.log
 	});
 
-	const globs = 'build/**'
+	const globs = 'build/**';
+	const remotePath = $.util.env.branch === 'beta' ? config.beta_path : config.remote_path;
 
 	// using base = './build' will transfer everything to folder correctly 
 	// turn off buffering in gulp.src for best performance 
 	return gulp.src(globs, { base: './build', buffer: false })
-		.pipe(connection.newer(config.remote_path)) // only upload newer files 
-		.pipe(connection.dest(config.remote_path));
+		.pipe(connection.newer(remotePath)) // only upload newer files 
+		.pipe(connection.dest(remotePath));
 }
 
 // MISC
