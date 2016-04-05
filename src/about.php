@@ -44,15 +44,23 @@ function version($file) {
 		</div>
 	</div>
 
+	<!-- Main content -->
 	<div class="card">
 		<h4>In short</h4>
 		<p>
-			I'm a Dutch, <?=get_age(1999,06,19)?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
+			I am a Dutch, <?=get_age(1999,06,19)?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
 		</p>
 	</div>
 	<div class="card">
+		<h4>History</h4>
 		<p>
-			When is was 13, I started with learning HTML, CSS and JavaScript to create my first very own website. After knowing how te create a website I began to make little games in Javascript to expand my knowledge. After a year I wanted more and created a very simple Snake game for my Android phone. Now I'm an active Android and web developer and have worked with a lot of different programming languages. I didn't only develop web and Android apps. I have also worked with scripting languages like Python, which is great for scripting.
+			When is was 13, I started with learning HTML, CSS and JavaScript to create my first very own website. After knowing how te create a website I began to make little games in Javascript to expand my knowledge. After a year I wanted more and created a very simple Snake game for my Android phone. After that, I continued developing Android apps, of which the result can be seen on my developer account.
+		</p>
+	</div>
+	<div class="card">
+		<h4>My current life</h4>
+		<p>
+			Now I am an active Android and web developer who combines school and development, but I do not only develop web and Android apps. Sometimes I work with Python, which is a great language for scripting. Also I have tried multiple frameworks and programming tools.
 		</p>
 	</div>
 
