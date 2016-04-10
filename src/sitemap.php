@@ -51,6 +51,7 @@ function version($file) {
 		<ul class="links">
 			<li><a href="/projects#mastermind">Mastermind</a></li>
 			<li><a href="/projects#woording">Woording</a></li>
+			<li><a href="//projects.philipdb.com">More projects</a></li>
 		</ul>
 	</div>
 
