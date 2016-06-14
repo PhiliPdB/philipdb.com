@@ -166,9 +166,11 @@ function deploy() {
 			host: $.util.env.host,
 			user: $.util.env.user,
 			password: $.util.env.password,
-			remote_path: config.remote_path
+			remote_path: $.util.env.path
 		};
 	}
+
+	console.log(config);
 
 	const connection = ftp.create({
 		host: config.host,
