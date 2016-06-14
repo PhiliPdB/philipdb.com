@@ -160,9 +160,8 @@ gulp.task('deploy', deploy);
 function deploy() {
 	let config;
 	try {
-		config = require('./configg.json');
+		config = require('./config.json');
 	} catch (error) {
-		console.log(error);
 		config = {};
 	}
 

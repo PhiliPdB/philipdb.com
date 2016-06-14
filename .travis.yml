@@ -8,9 +8,6 @@ sudo: false
 node_js:
 - '6'
 
-before_script:
-- npm install
-
 script:
 - gulp build
 
