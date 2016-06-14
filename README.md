@@ -1,5 +1,7 @@
 # philipdb.com
 
+[![Build Status](https://travis-ci.org/PhiliPdB/philipdb.com.svg?branch=master)](https://travis-ci.org/PhiliPdB/philipdb.com)
+
 This is the source code of my website.
 
 # Setup
