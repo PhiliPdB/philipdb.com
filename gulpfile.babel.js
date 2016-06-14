@@ -177,11 +177,6 @@ function deploy() {
 		log: $.util.log
 	});
 
-	console.log($.util.env.host != true);
-	console.log($.util.env.user != true);
-	console.log($.util.env.password != true);
-	console.log($.util.env.path != true);
-
 	const globs = 'build/**';
 	const remotePath = $.util.env.beta ? config.beta_path : config.remote_path;
 
