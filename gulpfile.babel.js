@@ -170,8 +170,6 @@ function deploy() {
 		};
 	}
 
-	console.log(config);
-
 	const connection = ftp.create({
 		host: config.host,
 		user: config.user,
