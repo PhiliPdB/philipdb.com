@@ -160,14 +160,14 @@ gulp.task('deploy', deploy);
 function deploy() {
 	const config = require('./config.json');
 	const connection = ftp.create({
-		host: config.host,
-		user: config.user,
-		password: config.password,
+		host: config.host || $.util.env.host,
+		user: config.user || $.util.env.user,
+		password: config.password || $.util.env.password,
 		log: $.util.log
 	});
 
 	const globs = 'build/**';
-	const remotePath = $.util.env.branch === 'beta' ? config.beta_path : config.remote_path;
+	const remotePath = ($.util.env.branch === 'beta' ? config.beta_path : config.remote_path) || $.util.env.path;
 
 	// using base = './build' will transfer everything to folder correctly 
 	// turn off buffering in gulp.src for best performance 
