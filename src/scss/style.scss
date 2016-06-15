@@ -221,10 +221,10 @@ header, footer {
 			background: rgba(0,0,0,0.66);
 			opacity: 0;
 			transition: all $animation;
+		}
 
-			&:hover {
-				opacity: 1;
-			}
+		&:hover:after {
+			opacity: 1;
 		}
 
 		// Resize on smaller screens
