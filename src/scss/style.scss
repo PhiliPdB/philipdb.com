@@ -7,6 +7,9 @@
 	margin: -$blur_distance -$blur_distance * 2 -$blur_distance * 2 -$blur_distance;
 }
 
+/*
+ * Styles
+ */
 *, body, html {
 	margin: 0;
 }
@@ -25,6 +28,7 @@ body {
 
 	min-height: 100%;
 	// Flexbox setup
+	// This is to make the footer stick to the bottom
 	display: flex;
 	flex-direction: column;
 
@@ -65,13 +69,19 @@ header, footer {
 		bottom: 0;
 		right: 0;
 
+		// Background
 		background-color: $dark_grey;
 		background-image: url('../images/banner.jpg');
 		background-repeat: no-repeat;
 		background-position: left center;
 		background-size: 100%;
 		
+		// Bluring
 		@include blur(5px);
+
+		@media screen and (max-width: $mobile_m) {
+			@include blur(2.5px);
+		}
 
 		@media screen and (min-width: 3000px) {
 			@include blur(10px);
@@ -154,6 +164,7 @@ header, footer {
 
 	.project {
 		$width: .24 * $card_width;
+		
 		position: relative;
 		overflow: hidden;
 		width: $width;
@@ -163,7 +174,8 @@ header, footer {
 		margin: .5%;
 		cursor: pointer;
 		border-radius: 4px;
-		// Shadow
+		
+		// Material shadow --> elevation 3dp
 		box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
 					0 1px 8px 0 rgba(0, 0, 0, 0.12),
 					0 3px 3px -2px rgba(0, 0, 0, 0.4);
@@ -197,6 +209,7 @@ header, footer {
 			}
 		}
 
+		// Darker overlay on hover
 		&:after {
 			content: '\A';
 			position: absolute;
@@ -208,45 +221,51 @@ header, footer {
 			background: rgba(0,0,0,0.66);
 			opacity: 0;
 			transition: all $animation;
-		}
 
-		&:hover:after {
-			opacity: 1;
+			&:hover {
+				opacity: 1;
+			}
 		}
 
 		// Resize on smaller screens
 		@media screen and (max-width: 950px) {
 			$width: (1/3 - .01) * $card_width; // 1/3 of width
+			
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: 800px) {
 			$card_width: 80vw;
 			$width: .24 * $card_width; // 1/4 of width
+			
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: 700px) {
 			$card_width: 80vw;
 			$width: (1/3 - .01) * $card_width; // 1/3 of width
+			
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: 500px) {
 			$card_width: 80vw;
 			$width: .49 * $card_width; // 1/2 of width
+			
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: $mobile_l) {
 			$card_width: 90vw;
 			$width: .49 * $card_width; // 1/2 of width
+			
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: $mobile_s) {
 			$card_width: 90vw;
 			$width: .99 * $card_width; // Full width
+			
 			width: $width;
 			height: $width;
 		}
