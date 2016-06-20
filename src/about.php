@@ -54,7 +54,7 @@ function version($file) {
 	<div class="card">
 		<h4>History</h4>
 		<p>
-			When is was 13, I started with learning HTML, CSS and JavaScript to create my first very own website. After knowing how te create a website I began to make little games in Javascript to expand my knowledge. After a year I wanted more and created a very simple Snake game for my Android phone. After that, I continued developing Android apps, of which the result can be seen on my developer account.
+			When I was 13, I started with learning HTML, CSS and JavaScript to create my first very own website. After knowing how te create a website I began to make little games in Javascript to expand my knowledge. After a year I wanted more and created a very simple Snake game for my Android phone. After that, I continued developing Android apps, of which the result can be seen on my developer account.
 		</p>
 	</div>
 	<div class="card">
