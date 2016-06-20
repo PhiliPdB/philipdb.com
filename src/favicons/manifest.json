@@ -1,5 +1,14 @@
 {
+	"lang": "en",
+	"dir": "ltr",
 	"name": "PhiliPdB",
+	"description": "My personal website",
+	"short_name": "PhiliPdB",
+	"display": "standalone",
+	"orientation": "any",
+	"scope": "/",
+	"start_url": "/",
+	"theme_color": "#333333",
 	"icons": [
 		{
 			"src": "\/favicons\/android-chrome-36x36.png",
