@@ -51,8 +51,10 @@ $paragraph_text: rgba(0, 0, 0, .54);
 	}
 
 	ul {
-		padding-top: $padding_unit/2;
-		padding-bottom: $padding_unit/2;
+		padding: {
+			top: $padding_unit/2;
+			bottom: $padding_unit/2;
+		}
 
 		li {
 			color: $paragraph_text;

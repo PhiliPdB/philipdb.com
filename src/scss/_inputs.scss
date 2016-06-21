@@ -6,8 +6,10 @@ $error_color: #f44336;
 .group {
 	display: inline-block;
 	position: relative;
-	margin-top: 20px;
-	margin-bottom: 5px;
+	margin: {
+		top: 20px;
+		bottom: 5px;
+	}
 	width: 100%;
 
 	input, textarea {
@@ -15,10 +17,14 @@ $error_color: #f44336;
 		padding: 10px 10px 10px 5px;
 		display: block;
 		width: $input_width;
-		border: none;
-		border-bottom: 1px solid #757575;
 		background-color: transparent;
-		border-radius: 0;
+		border: {
+			top: none;
+			left: none;
+			bottom: 1px solid #757575;
+			right: none;
+			radius: 0;
+		}
 
 		&:focus {
 			outline: none;
