@@ -7,6 +7,18 @@
 	margin: -$blur_distance -$blur_distance * 2 -$blur_distance * 2 -$blur_distance;
 }
 
+%center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	@media screen and (max-width: $mobile_l) {
+		top: 60%;
+		transform: translate(-50%, -50%);
+	}
+}
+
 /*
  * Styles
  */
@@ -39,18 +51,6 @@ body {
 
 header, footer {
 	flex: none;
-}
-
-.center {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-
-	@media screen and (max-width: $mobile_l) {
-		top: 60%;
-		transform: translate(-50%, -50%);
-	}
 }
 
 // Header
@@ -91,6 +91,8 @@ header, footer {
 	}
 
 	#title {
+		@extend %center;
+		
 		padding: $padding_unit;
 		text-align: center;
 

@@ -48,7 +48,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 	<!-- Banner -->
 	<div id="home">
 		<div class="background_image"></div>
-		<div id="title" class="center">
+		<div id="title">
 			<h1>Contact</h1>
 		</div>
 	</div>
