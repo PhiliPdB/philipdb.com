@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'fonts';
-@import 'inputs';
+@import "variables";
+@import "fonts";
+@import "inputs";
 
 @mixin blur($blur_distance) {
 	filter: blur($blur_distance);
@@ -31,7 +31,7 @@ html {
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	// Smooth font hacks
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -54,7 +54,7 @@ header, footer {
 }
 
 // Header
-@import 'header';
+@import "header";
 
 #home {
 	position: relative;
@@ -72,7 +72,7 @@ header, footer {
 		// Background
 		background: {
 			color: $dark_grey;
-			image: url('../images/banner.jpg');
+			image: url("../images/banner.jpg");
 			repeat: no-repeat;
 			position: left center;
 			size: 100%;
@@ -155,7 +155,7 @@ header, footer {
 }
 
 // Card style
-@import 'card';
+@import "card";
 
 // Projects display
 .projects {
@@ -215,7 +215,7 @@ header, footer {
 
 		// Darker overlay on hover
 		&:after {
-			content: '\A';
+			content: "\A";
 			position: absolute;
 			width: 100%;
 			height: 100%;
@@ -277,4 +277,4 @@ header, footer {
 }
 
 // Footer
-@import 'footer';
+@import "footer";

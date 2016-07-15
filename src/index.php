@@ -1,12 +1,12 @@
 <?php 
 // Enable PHP Gzip compression
-ob_start('ob_gzhandler');
+ob_start("ob_gzhandler");
 
-$current = 'home';
+$current = "home";
 function get_age($year, $month, $day) {
-	$age = date("Y") - $year;
-	if (date("m") < $month) $age -= 1;
-	elseif (date("m") == $month && date("d") < $day) $age -= 1;
+	$age = date('Y') - $year;
+	if (date('m') < $month) $age -= 1;
+	elseif (date('m') == $month && date('d') < $day) $age -= 1;
 	return $age;
 }
 function version($file) {
@@ -16,7 +16,7 @@ function version($file) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php require('metatags.html'); ?>
+	<?php require("metatags.html"); ?>
 	<!-- Search engine stuff -->
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="My personal website" />
@@ -24,17 +24,17 @@ function version($file) {
 	
 	<title>PhiliPdB</title>
 	
-	<link rel="stylesheet" href="<?=version('css/style.css')?>">
+	<link rel="stylesheet" href="<?=version("css/style.css")?>">
 
 	<!-- Favicons -->
-	<?php include('favicons.html') ?>
+	<?php include("favicons.html") ?>
 </head>
 <body>
 	<!-- Google Analytics -->
 	<?php include_once("analytics.html"); ?>
 
 	<!-- Header -->
-	<?php require('components/header.html') ?>
+	<?php require("components/header.html") ?>
 
 	<!-- Banner -->
 	<div id="home">
@@ -52,7 +52,7 @@ function version($file) {
 	<div id="about" class="card">
 		<h2>About me</h2>
 		<p class="first">
-			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I'm <?=get_age(1999,06,19)?> years old and have developed multiple websites, web apps and Android apps. Sometimes it's hard to combine developing and school, but so far it has succeeded...
+			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I"m <?=get_age(1999,06,19)?> years old and have developed multiple websites, web apps and Android apps. Sometimes it"s hard to combine developing and school, but so far it has succeeded...
 		</p>
 		<a class="button" href="about">Learn more about me</a>
 	</div>
@@ -78,9 +78,9 @@ function version($file) {
 	</div>
 
 	<!-- Footer -->
-	<?php require('components/footer.html'); ?>
+	<?php require("components/footer.html"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version('js/script.js')?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=version("js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

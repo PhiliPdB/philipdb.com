@@ -1,12 +1,12 @@
 <?php 
 // Enable PHP Gzip compression
-ob_start('ob_gzhandler');
+ob_start("ob_gzhandler");
 
-$current = 'about';
+$current = "about";
 function get_age($year, $month, $day) {
-	$age = date("Y") - $year;
-	if (date("m") < $month) $age -= 1;
-	elseif (date("m") == $month && date("d") < $day) $age -= 1;
+	$age = date('Y') - $year;
+	if (date('m') < $month) $age -= 1;
+	elseif (date('m') == $month && date('d') < $day) $age -= 1;
 	return $age;
 }
 function version($file) {
@@ -16,7 +16,7 @@ function version($file) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php require('../metatags.html'); ?>
+	<?php require("../metatags.html"); ?>
 	<!-- Search engine stuff -->
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="This is all about me, PhiliPdB" />
@@ -24,17 +24,17 @@ function version($file) {
 	
 	<title>About me</title>
 	
-	<link rel="stylesheet" href="<?=version('../css/style.css')?>">
+	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
 
 	<!-- Favicons -->
-	<?php include('../favicons.html') ?>
+	<?php include("../favicons.html") ?>
 </head>
 <body>
 	<!-- Google Analytics -->
 	<?php include_once("../analytics.html"); ?>
 
 	<!-- Header -->
-	<?php require('../components/header.html'); ?>
+	<?php require("../components/header.html"); ?>
 
 	<!-- Banner -->
 	<div id="home">
@@ -65,9 +65,9 @@ function version($file) {
 	</div>
 
 	<!-- Footer -->
-	<?php require('../components/footer.html'); ?>
+	<?php require("../components/footer.html"); ?>
 	
 	<!-- Scripts -->
-	<script src="<?=version('../js/script.js')?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

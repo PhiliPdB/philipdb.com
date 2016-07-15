@@ -1,21 +1,21 @@
 <?php 
 // Enable PHP Gzip compression
-ob_start('ob_gzhandler');
+ob_start("ob_gzhandler");
 
-$current = 'contact';
+$current = "contact";
 function version($file) {
 	return $file . '?' . filemtime($file);
 }
 
 // Send
-if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['body'])
-	&& filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) && isset($_POST["body"])
+	&& filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 	mail(
 		"philip@philipdb.com",
-		$_POST['subject'],
-		$_POST['body'],
+		$_POST["subject"],
+		$_POST["body"],
 		"From: philipdb.com <noreply@philipdb.com>" . "\r\n" .
-		"Reply-to: " . $_POST['email'] . "\r\n" .
+		"Reply-to: " . $_POST["email"] . "\r\n" .
 		"X-Mailer: PHP/" . phpversion()
 	);
 	$_POST = array();
@@ -25,7 +25,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php require('../metatags.html'); ?>
+	<?php require("../metatags.html"); ?>
 	<!-- Search engine stuff -->
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="Contact information of PhiliPdB" />
@@ -33,17 +33,17 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 	
 	<title>Contact</title>
 	
-	<link rel="stylesheet" href="<?=version('../css/style.css')?>">
+	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
 
 	<!-- Favicons -->
-	<?php include('../favicons.html') ?>
+	<?php include("../favicons.html") ?>
 </head>
 <body>
 	<!-- Google Analytics -->
 	<?php include_once("../analytics.html"); ?>
 
 	<!-- Header -->
-	<?php require('../components/header.html'); ?>
+	<?php require("../components/header.html"); ?>
 
 	<!-- Banner -->
 	<div id="home">
@@ -67,7 +67,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 				<label>Name</label>
 			</div><br>
 			<div class="group">
-				<input type="email" required name="email" autocomplete oninput="this.className = 'validate'">
+				<input type="email" required name="email" autocomplete oninput="this.className = "validate"">
 				<span class="highlight"></span>
 				<span class="bar"></span>
 				<label>Email</label>
@@ -90,9 +90,9 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) 
 	</div>
 
 	<!-- Footer -->
-	<?php require('../components/footer.html'); ?>
+	<?php require("../components/footer.html"); ?>
 	
 	<!-- Scripts -->
-	<script src="<?=version('../js/script.js')?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
