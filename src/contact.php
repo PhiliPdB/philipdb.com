@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
@@ -30,9 +30,9 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="Contact information of PhiliPdB" />
 	<meta name="keywords" content="contact, email, personal, website, philipdb, open, source, philip, de, bruin" />
-	
+
 	<title>Contact</title>
-	
+
 	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
 
 	<!-- Favicons -->
@@ -91,7 +91,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 
 	<!-- Footer -->
 	<?php require("../components/footer.html"); ?>
-	
+
 	<!-- Scripts -->
 	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>

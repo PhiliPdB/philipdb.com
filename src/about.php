@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
@@ -21,9 +21,9 @@ function version($file) {
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="This is all about me, PhiliPdB" />
 	<meta name="keywords" content="about, who, i, am, me, personal, website, philipdb, open, source, philip, de, bruin" />
-	
+
 	<title>About me</title>
-	
+
 	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
 
 	<!-- Favicons -->
@@ -66,7 +66,7 @@ function version($file) {
 
 	<!-- Footer -->
 	<?php require("../components/footer.html"); ?>
-	
+
 	<!-- Scripts -->
 	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>

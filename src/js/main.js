@@ -4,10 +4,10 @@ let drawerOpen = false;
 window.onload = function() {
 	// Set up everything...
 	addEvent(document.body, "click", handleDrawerClick);
-	
+
 	addEvent(window, "scroll", updateHeaderBackground);
 	updateHeaderBackground();
-	
+
 	setupSwipeDrawer();
 }
 
@@ -23,7 +23,7 @@ function updateHeaderBackground(event) {
 		offset += node.offsetTop;
 		node = node.offsetParent;
 	}
-	
+
 	const height = banner.offsetHeight;
 
 	offset += height;
@@ -90,7 +90,7 @@ function setupSwipeDrawer() {
 		if (startedSwipe && drawerOpen && touch.pageX < startPosition.x) {
 			// Calculate the position of the drawer to follow your finger
 			let position = Math.min(30 + touch.pageX - (startPosition.x - drawerWidth), drawerWidth + 30);
-			
+
 			// Set all transform styles
 			drawer.style.transition = "none";
 			drawer.style.webkitTransition = "none";
@@ -99,7 +99,7 @@ function setupSwipeDrawer() {
 		} else if (startedSwipe && !drawerOpen && touch.pageX > startPosition.x) {
 			// Calculate the position of the drawer to follow your finger
 			let position = Math.min(30 + touch.pageX - startPosition.x, drawerWidth + 30)
-			
+
 			// Set all transform styles
 			drawer.style.transition = "none";
 			drawer.style.webkitTransition = "none";
@@ -114,13 +114,13 @@ function setupSwipeDrawer() {
 			// Finish closing the drawer
 			drawerOpen = false;
 			startedSwipe = false;
-			
+
 			// Remove transitions and reset class name
 			drawer.style.transition = "";
 			drawer.style.webkitTransition = "";
 			drawer.style.transform = "";
 			drawer.style.webkitTransform = "";
-			
+
 			drawer.className = "";
 		} else if (startedSwipe && touch.pageX > drawerWidth / 2) {
 			// Finish opening the drawer
@@ -132,7 +132,7 @@ function setupSwipeDrawer() {
 			drawer.style.webkitTransition = "";
 			drawer.style.transform = "";
 			drawer.style.webkitTransform = "";
-			
+
 			drawer.className = "open";
 		}
 	});

@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
@@ -21,9 +21,9 @@ function version($file) {
 	<meta name="author" content="PhiliPdB">
 	<meta name="description" content="My personal website" />
 	<meta name="keywords" content="personal, website, philipdb, open, source, philip, de, bruin" />
-	
+
 	<title>PhiliPdB</title>
-	
+
 	<link rel="stylesheet" href="<?=version("css/style.css")?>">
 
 	<!-- Favicons -->

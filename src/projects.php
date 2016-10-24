@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
@@ -66,10 +66,10 @@ function version($file) {
 		</p>
 		<a class="button" href="//projects.philipdb.com" target="_blank">Projects website</a>
 	</div>
-	
+
 	<!-- Footer -->
 	<?php require("../components/footer.html"); ?>
-	
+
 	<!-- Scripts -->
 	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>

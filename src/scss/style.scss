@@ -77,7 +77,7 @@ header, footer {
 			position: left center;
 			size: 100%;
 		}
-		
+
 		// Bluring
 		@include blur(5px);
 
@@ -92,7 +92,7 @@ header, footer {
 
 	#title {
 		@extend %center;
-		
+
 		padding: $padding_unit;
 		text-align: center;
 
@@ -130,7 +130,7 @@ header, footer {
 				text-decoration: none;
 
 				transition: background-color $animation, color $animation;
-				
+
 				&:hover {
 					background-color: white;
 					color: $dark_text;
@@ -168,7 +168,7 @@ header, footer {
 
 	.project {
 		$width: .24 * $card_width;
-		
+
 		position: relative;
 		overflow: hidden;
 		width: $width;
@@ -178,7 +178,7 @@ header, footer {
 		margin: .5%;
 		cursor: pointer;
 		border-radius: 4px;
-		
+
 		// Material shadow --> elevation 3dp
 		box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14),
 					0 1px 8px 0 rgba(0, 0, 0, 0.12),
@@ -234,42 +234,42 @@ header, footer {
 		// Resize on smaller screens
 		@media screen and (max-width: 950px) {
 			$width: (1/3 - .01) * $card_width; // 1/3 of width
-			
+
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: 800px) {
 			$card_width: 80vw;
 			$width: .24 * $card_width; // 1/4 of width
-			
+
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: 700px) {
 			$card_width: 80vw;
 			$width: (1/3 - .01) * $card_width; // 1/3 of width
-			
+
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: 500px) {
 			$card_width: 80vw;
 			$width: .49 * $card_width; // 1/2 of width
-			
+
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: $mobile_l) {
 			$card_width: 90vw;
 			$width: .49 * $card_width; // 1/2 of width
-			
+
 			width: $width;
 			height: $width;
 		}
 		@media screen and (max-width: $mobile_s) {
 			$card_width: 90vw;
 			$width: .99 * $card_width; // Full width
-			
+
 			width: $width;
 			height: $width;
 		}
