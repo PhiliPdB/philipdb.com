@@ -54,9 +54,7 @@ function version($file) {
 		<p class="first">
 			Me and two friends decided to create a service that helps you learn words. Actually they asked me to join. At first we created an API and a website, but that website wasn't great so they started to recreate the website, while I began working on the Android app. This app is still in beta, so the only way to get this is by signing up for the beta.
 		</p>
-		<a class="button" href="https://github.com/woording/woording-android" target="_blank">View Woording on Github</a>
-		<a class="button" href="https://play.google.com/apps/testing/com.woording.android" target="_blank">Sign up for Woording Beta</a>
-		<a class="button" href="https://woording.com" target="_blank">Go to Woording website</a>
+		<a class="button" href="https://github.com/woording/" target="_blank">View Woording on Github</a>
 	</div>
 	<div id="more" class="card">
 		<h2>More projects</h2>
