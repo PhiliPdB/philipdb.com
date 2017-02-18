@@ -52,7 +52,7 @@ function version($file) {
 		<h2>Woording Android</h2>
 		<h4>Android app</h4>
 		<p class="first">
-			Me and two friends decided to create a service that helps you learn words. Actually they asked me to join. At first we created an API and a website, but that website wasn't great so they started to recreate the website, while I began working on the Android app. This app is still in beta, so the only way to get this is by signing up for the beta.
+			Me and two friends decided to create a service that helps you learn words. Actually they asked me to join. At first we created an API and a website, but that website wasn't great so they started to recreate the website, while I began working on the Android app. Currently the project is a bit dead, but there are plans to bring it back to live again.
 		</p>
 		<a class="button" href="https://github.com/woording/" target="_blank">View Woording on Github</a>
 	</div>

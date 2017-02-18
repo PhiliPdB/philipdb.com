@@ -44,7 +44,7 @@ function version($file) {
 			<div>
 				<h3>Day&#45;to&#45;day comfort</h3>
 				<ul>
-					<li>Java &#40;Android&#41; &#47; Android studio</li>
+					<li>Java &#40;Android&#41;</li>
 					<li>JavaScript</li>
 					<li>HTML5 &#47; CSS3 &#40;SCSS&#41;</li>
 					<li>PHP</li>
@@ -56,6 +56,7 @@ function version($file) {
 				<h3>Experience with</h3>
 				<ul>
 					<li>GulpJS</li>
+					<li>Firebase</li>
 					<li>&#40;Material&#41; AngularJS</li>
 					<li>Arduino</li>
 					<li>Databases &#40;SQL&#41;</li>
