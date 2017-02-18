@@ -72,7 +72,7 @@ let drawerWidth;
 
 function setupSwipeDrawer() {
 	// Touch start
-	addEvent(document.body, "touchstart", event => {
+	addEvent(document.body, "touchstart", (event) => {
 		const touch = event.targetTouches[0];
 		// Only initialize when drawer is open or when tapping in specific area when screen is small enough
 		if (drawerOpen || (!drawerOpen && touch.pageX < 24 && window.innerWidth <= 540)) {
@@ -85,7 +85,7 @@ function setupSwipeDrawer() {
 	});
 
 	// Moving you finger while touching the screen clearly does now something
-	addEvent(document.body, "touchmove", event => {
+	addEvent(document.body, "touchmove", (event) => {
 		const touch = event.targetTouches[0]; // Pick the first finger
 		if (startedSwipe && drawerOpen && touch.pageX < startPosition.x) {
 			// Calculate the position of the drawer to follow your finger
@@ -98,7 +98,7 @@ function setupSwipeDrawer() {
 			drawer.style.webkitTransform = `translate(${position}px, 0)`;
 		} else if (startedSwipe && !drawerOpen && touch.pageX > startPosition.x) {
 			// Calculate the position of the drawer to follow your finger
-			let position = Math.min(30 + touch.pageX - startPosition.x, drawerWidth + 30)
+			let position = Math.min(30 + touch.pageX - startPosition.x, drawerWidth + 30);
 
 			// Set all transform styles
 			drawer.style.transition = "none";
@@ -108,7 +108,7 @@ function setupSwipeDrawer() {
 		}
 	});
 
-	addEvent(document.body, "touchend", event => {
+	addEvent(document.body, "touchend", (event) => {
 		const touch = event.changedTouches[0];
 		if (startedSwipe && touch.pageX <= drawerWidth / 2) {
 			// Finish closing the drawer
