@@ -42,6 +42,7 @@ $paragraph_text: rgba(0, 0, 0, .54);
 
 	// Column setup
 	div.columns {
+		max-width: 750px;
 		// Flexbox setup
 		display: flex;
 		flex-flow: row wrap;
