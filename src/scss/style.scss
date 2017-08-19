@@ -146,11 +146,23 @@ header, footer {
 					font-size: $default_font_size*1.5;
 				}
 			}
+
+			@media screen and (max-width: $mobile_l) {
+				// Create more room for the buttons
+				margin: {
+					top: $padding_unit*2;
+					bottom: $padding_unit;
+				}
+			}
 		}
 
 		@media screen and (max-width: $mobile_l) {
 			width: 100%;
 		}
+	}
+
+	@media screen and (max-width: $mobile_l) {
+		height: calc(40vw + #{$header_height} + #{$padding_unit*3});
 	}
 }
 
