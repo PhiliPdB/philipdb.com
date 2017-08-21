@@ -42,7 +42,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 	<?php include_once("../analytics.html"); ?>
 
 	<!-- Header -->
-	<?php require("../components/header.html"); ?>
+	<?php require("../components/header.php"); ?>
 
 	<!-- Banner -->
 	<div id="home">
@@ -89,7 +89,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 	</div>
 
 	<!-- Footer -->
-	<?php require("../components/footer.html"); ?>
+	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
 	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
