@@ -2,7 +2,6 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-$current = "sitemap";
 function version($file) {
 	return $file . '?' . filemtime($file);
 }

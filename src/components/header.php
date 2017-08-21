@@ -1,3 +1,5 @@
+<?php $page = $_SERVER["REQUEST_URI"];?>
+
 <nav id="navigation_drawer">
 	<div class="navigation">
 		<div class="link"><a href="/">Home</a></div><hr>
@@ -15,10 +17,10 @@
 	</svg>
 	<h1>PhiliPdB</h1>
 	<div class="navigation">
-		<div class="link <?php if ($current == 'home') echo 'current'; ?>"><a href="/">Home</a></div>
-		<div class="link <?php if ($current == 'about') echo 'current'; ?>"><a href="/about">About me</a></div>
-		<div class="link <?php if ($current == 'projects') echo 'current'; ?>"><a href="/projects">Projects</a></div>
-		<div class="link <?php if ($current == 'skills') echo 'current'; ?>"><a href="/skills">Skills</a></div>
-		<div class="link <?php if ($current == 'contact') echo 'current'; ?>"><a href="/contact">Contact</a></div>
+		<div class="link <?php if ($page === '/') echo 'current'; ?>"><a href="/">Home</a></div>
+		<div class="link <?php if ($page === '/about') echo 'current'; ?>"><a href="/about">About me</a></div>
+		<div class="link <?php if ($page === '/projects') echo 'current'; ?>"><a href="/projects">Projects</a></div>
+		<div class="link <?php if ($page === '/skills') echo 'current'; ?>"><a href="/skills">Skills</a></div>
+		<div class="link <?php if ($page === '/contact') echo 'current'; ?>"><a href="/contact">Contact</a></div>
 	</div>
 </header>
