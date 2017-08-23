@@ -14,8 +14,9 @@ before_script:
 script:
 - gulp build
 
-after_success:
-- gulp deploy --host $DEPLOY_HOST --user $DEPLOY_USER --password $DEPLOY_PASSWORD --path $DEPLOY_PATH
+deploy:
+  provider: script
+  script: gulp deploy --host $DEPLOY_HOST --user $DEPLOY_USER --password $DEPLOY_PASSWORD --path $DEPLOY_PATH
 
 # Cache setup
 cache:
