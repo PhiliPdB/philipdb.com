@@ -19,6 +19,7 @@ node_modules
 
 # phpmyadmin directory
 phpmyadmin/
+phpmyadmin.zip
 
 # Sublime stuff
 # cache files for sublime text
