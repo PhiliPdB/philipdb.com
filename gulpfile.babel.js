@@ -56,6 +56,14 @@ gulp.task('connect', () => {
 		hostname: '0.0.0.0',
 		port: 6000
 	});
+
+	// Another server for phpMyAdmin, since connect-php doesn't support multiple bases
+	$.phpConnect.server({
+		base: './phpmyadmin',
+		open: false,
+		hostname: '0.0.0.0',
+		port: 1337
+	});
 });
 
 gulp.task('browser-sync', () => {
@@ -169,7 +177,10 @@ function deploy() {
 		}
 	}
 
-	const globs = 'build/**';
+	const globs = [
+		'build/**',
+		'!build/php/connection.php'
+	];
 	const remotePath = $.util.env.beta ? config.beta_path : config.remote_path;
 
 	return gulp.src(globs, { base: './build', buffer: false })
