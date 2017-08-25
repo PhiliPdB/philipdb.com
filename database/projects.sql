@@ -20,5 +20,6 @@ CREATE TABLE project_links (
 	project_link_text VARCHAR(255) NOT NULL,
 	project_link_url VARCHAR(255) NOT NULL,
 
-	PRIMARY KEY (project_link_id)
+	PRIMARY KEY (project_link_id),
+	FOREIGN KEY(project_link_project_id) REFERENCES projects(project_id) ON DELETE CASCADE
 ) ENGINE = InnoDB;
