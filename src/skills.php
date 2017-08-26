@@ -2,9 +2,8 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/helper.php');
+
  ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -2,11 +2,9 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/helper.php');
 
-// Send
+// Send email when post data is there
 if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) && isset($_POST["body"])
 	&& filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
 	mail(
