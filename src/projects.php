@@ -44,9 +44,12 @@ $projects = getProjects();
 	<!-- Cards -->
 	<?php foreach($projects as $project): ?>
 		<div id="<?=$project['project_tag']?>" class="card">
+			<!-- Titles -->
 			<h2><?=$project['project_title']?></h2>
 			<h4><?=$project['project_subtitle']?></h4>
+			<!-- Description -->
 			<p class="first"><?=$project['project_description']?></p>
+			<!-- Project links -->
 			<?php foreach($project['project_links'] as $project_link): ?>
 				<a class="button" href="<?=$project_link['project_link_url']?>" target="_blank"><?=$project_link['project_link_text']?></a>
 			<?php endforeach; ?>
