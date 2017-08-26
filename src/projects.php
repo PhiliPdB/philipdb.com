@@ -1,12 +1,9 @@
 <?php
-require('../php/database_helper.php');
-
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/helper.php');
+require('../php/database_helper.php');
 
 $projects = getProjects();
  ?>
@@ -42,7 +39,7 @@ $projects = getProjects();
 	</div>
 
 	<!-- Cards -->
-	<?php foreach($projects as $project): ?>
+	<?php foreach ($projects as $project): ?>
 		<div id="<?=$project['project_tag']?>" class="card">
 			<!-- Titles -->
 			<h2><?=$project['project_title']?></h2>
@@ -50,7 +47,7 @@ $projects = getProjects();
 			<!-- Description -->
 			<p class="first"><?=$project['project_description']?></p>
 			<!-- Project links -->
-			<?php foreach($project['project_links'] as $project_link): ?>
+			<?php foreach ($project['project_links'] as $project_link): ?>
 				<a class="button" href="<?=$project_link['project_link_url']?>" target="_blank"><?=$project_link['project_link_text']?></a>
 			<?php endforeach; ?>
 		</div>
@@ -59,7 +56,7 @@ $projects = getProjects();
 	<!-- More card -->
 	<div id="more" class="card">
 		<h2>More projects</h2>
-		<h4>Web apps</h4>
+		<h4>Web &amp; Android apps</h4>
 		<p class="first">
 			These are not my only projects. You can view more by clicking on the button below.
 		</p>
