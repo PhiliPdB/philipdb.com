@@ -4,6 +4,7 @@ USE website;
 DROP TABLE IF EXISTS projects;
 CREATE TABLE projects (
 	project_id INT(11) NOT NULL AUTO_INCREMENT,
+	project_tag VARCHAR(255) NOT NULL,
 	project_title VARCHAR(255) NOT NULL,
 	project_subtitle VARCHAR(255) NOT NULL,
 	project_description TEXT NOT NULL,
