@@ -2,15 +2,11 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function get_age($year, $month, $day) {
-	$age = date('Y') - $year;
-	if (date('m') < $month) $age -= 1;
-	elseif (date('m') == $month && date('d') < $day) $age -= 1;
-	return $age;
-}
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('php/helper.php');
+require('php/database_helper.php');
+
+$projects = getProjects();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,23 +51,20 @@ function version($file) {
 		</p>
 		<a class="button" href="about">Learn more about me</a>
 	</div>
+
+	<!-- Projects -->
 	<div id="projects" class="card">
 		<h2>Latest projects</h2>
 		<div class="projects">
-			<a class="project" id="mastermind" href="projects#mastermind">
-				<img src="images/projects/mastermind.png" alt="MasterMind" width="512" height="512">
-				<div class="description">
-					<div class="title">MasterMind</div>
-					<div class="subtitle">Web app</div>
-				</div>
-			</a>
-			<a href="projects#woording" class="project" id="woording">
-				<img src="images/projects/woording.png" alt="Woording" width="512" height="512">
-				<div class="description">
-					<div class="title">Woording</div>
-					<div class="subtitle">Android app</div>
-				</div>
-			</a>
+			<?php foreach ($projects as $project): ?>
+				<a id="<?=$project['project_tag']?>" class="project" href="projects#<?=$project['project_tag']?>">
+					<img src="images/projects/<?=$project['project_tag']?>.png" alt="<?=$project['project_title']?>" width="512" height="512">
+					<div class="description">
+						<div class="title"><?=$project['project_title']?></div>
+						<div class="subtitle"><?=$project['project_subtitle']?></div>
+					</div>
+				</a>
+			<?php endforeach; ?>
 		</div>
 		<a class="button" href="projects">View all my projects</a>
 	</div>
