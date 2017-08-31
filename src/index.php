@@ -5,7 +5,7 @@ ob_start("ob_gzhandler");
 require('php/helper.php');
 require('php/database_helper.php');
 
-$projects = getProjects();
+$projects = getProjects(4);
 
  ?>
 <!DOCTYPE html>
