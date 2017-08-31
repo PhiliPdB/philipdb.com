@@ -38,7 +38,7 @@ $projects = getProjects();
 		</div>
 	</div>
 
-	<!-- Cards -->
+	<!-- Projects -->
 	<?php foreach ($projects as $project): ?>
 		<div id="<?=$project['project_tag']?>" class="card">
 			<!-- Titles -->
