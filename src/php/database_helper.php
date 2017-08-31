@@ -1,10 +1,18 @@
 <?php
 
-function getProjects() {
+function getProjects($limit = null) {
 	require 'connection.php';
 
+	// Build query
+	$query = "SELECT * FROM projects ORDER BY project_id DESC";
+
+	// Add limit when needed
+	if ($limit != null) {
+		$query .= " LIMIT $limit";
+	}
+
 	// Get projects
-	$projects = $connection->query("SELECT * FROM projects ORDER BY project_id DESC")->fetch_all(MYSQLI_ASSOC);
+	$projects = $connection->query($query)->fetch_all(MYSQLI_ASSOC);
 
 	// Add project links
 	foreach ($projects as &$project) {
