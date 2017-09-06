@@ -5,7 +5,7 @@
 This is the source code of my website.
 
 ## How to use
-To run the website locally first follow the setup and than run `gulp`.
+To run the website locally first follow the setup and then run `gulp`.
 
 NOTE: To make highscores working, you have to manually import `database/projects.sql` into PhpMyAdmin.
 
