@@ -3,6 +3,9 @@
 ob_start("ob_gzhandler");
 
 require('../php/helper.php');
+require('../php/database_helper.php');
+
+$projects = getProjects();
 
  ?>
 <!DOCTYPE html>
@@ -47,9 +50,9 @@ require('../php/helper.php');
 		</ul>
 		<h3>Projects</h3>
 		<ul class="links">
-            <!-- TODO link with database -->
-			<li><a href="/projects#mastermind">Mastermind</a></li>
-			<li><a href="/projects#woording">Woording</a></li>
+            <?php foreach ($projects as $project): ?>
+                <li><a href="/projects#<?=$project['project_tag']?>"><?=$project['project_title']?></a></li>
+            <?php endforeach; ?>
 			<li><a href="//projects.philipdb.com">More projects</a></li>
 		</ul>
 	</div>
