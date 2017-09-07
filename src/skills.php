@@ -16,7 +16,7 @@ require('../php/helper.php');
 
 	<title>Skills</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>

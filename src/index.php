@@ -19,7 +19,7 @@ $projects = getProjects(4);
 
 	<title>PhiliPdB</title>
 
-	<link rel="stylesheet" href="<?=version("css/style.css")?>">
+	<link rel="stylesheet" href="<?=version("css/home.css")?>">
 
 	<!-- Favicons -->
 	<?php include("favicons.html") ?>

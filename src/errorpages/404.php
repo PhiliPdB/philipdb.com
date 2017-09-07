@@ -16,7 +16,7 @@ function version($file) {
 
 	<title>404 - Not found</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>

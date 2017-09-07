@@ -16,7 +16,7 @@ function version($file) {
 
 	<title>403 - Forbidden</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>

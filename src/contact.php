@@ -30,7 +30,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 
 	<title>Contact</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=version("../css/contact.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>

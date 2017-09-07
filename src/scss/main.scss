@@ -1,0 +1,169 @@
+@import "variables";
+@import "fonts";
+
+// UI Components
+@import "header";
+@import "footer";
+@import "card";
+
+@mixin blur($blur_distance) {
+    filter: blur($blur_distance);
+    margin: -$blur_distance -$blur_distance * 2 -$blur_distance * 2 -$blur_distance;
+}
+
+%center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @media screen and (max-width: $mobile_l) {
+        top: 60%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/*
+ * Styles
+ */
+*, body, html {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    // Smooth font hacks
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
+    font-size: $default_font_size;
+
+    min-height: 100%;
+    // Flexbox setup
+    // This is to make the footer stick to the bottom
+    display: flex;
+    flex-direction: column;
+
+    & > div.card {
+        flex: 1 0 auto;
+    }
+}
+
+header, footer {
+    flex: none;
+}
+
+// Home banner
+#home {
+    position: relative;
+    height: calc(40vw + #{$header_height});
+    max-height: 90vh;
+    overflow: hidden;
+
+    .background_image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        // Background
+        background: {
+            color: $dark_grey;
+            image: url("../images/banner.jpg");
+            repeat: no-repeat;
+            position: left center;
+            size: 100%;
+        }
+
+        // Bluring
+        @include blur(5px);
+
+        @media screen and (max-width: $mobile_m) {
+            @include blur(2.5px);
+        }
+
+        @media screen and (min-width: 3000px) {
+            @include blur(10px);
+        }
+    }
+
+    #title {
+        @extend %center;
+
+        padding: $padding_unit;
+        text-align: center;
+
+        h1 {
+            color: white;
+            font-weight: bold;
+            font-size: $default_font_size*5;
+            margin-bottom: $padding_unit;
+
+            @media screen and (max-width: $mobile_l) {
+                margin-bottom: $padding_unit/2;
+            }
+            @media screen and (max-width: $mobile_m) {
+                font-size: $default_font_size*4;
+            }
+            @media screen and (max-width: $mobile_s) {
+                font-size: $default_font_size*3.5;
+            }
+        }
+
+        .buttons {
+            width: 100%;
+
+            a {
+                width: calc(49% - 5% - #{$padding_unit});
+                margin: 1.25%;
+                padding: 1.25%;
+                display: inline-block;
+                background: transparent;
+                border: $padding_unit / 2 solid white;
+                cursor: pointer;
+
+                font-size: $default_font_size*2.5;
+                color: white;
+                text-decoration: none;
+
+                transition: background-color $animation, color $animation;
+
+                &:hover {
+                    background-color: white;
+                    color: $dark_text;
+                }
+
+                @media screen and (max-width: $mobile_l) {
+                    font-size: $default_font_size*1.9;
+                }
+                @media screen and (max-width: $mobile_m) {
+                    font-size: $default_font_size*1.7;
+                }
+                @media screen and (max-width: $mobile_s) {
+                    font-size: $default_font_size*1.5;
+                }
+            }
+
+            @media screen and (max-width: $mobile_l) {
+                // Create more room for the buttons
+                margin: {
+                    top: $padding_unit*2;
+                    bottom: $padding_unit;
+                }
+            }
+        }
+
+        @media screen and (max-width: $mobile_l) {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: $mobile_l) {
+        height: calc(40vw + #{$header_height} + #{$padding_unit*3});
+    }
+}
