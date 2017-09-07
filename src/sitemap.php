@@ -42,11 +42,12 @@ require('../php/helper.php');
 			<li><a href="/">Home</a></li>
 			<li><a href="/about">About me</a></li>
 			<li><a href="/projects">My projects</a></li>
-			<li><a href="/skills">Skils</a></li>
+			<li><a href="/skills">Skills</a></li>
 			<li><a href="/contact">Contact</a></li>
 		</ul>
 		<h3>Projects</h3>
 		<ul class="links">
+            <!-- TODO link with database -->
 			<li><a href="/projects#mastermind">Mastermind</a></li>
 			<li><a href="/projects#woording">Woording</a></li>
 			<li><a href="//projects.philipdb.com">More projects</a></li>
