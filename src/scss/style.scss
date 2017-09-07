@@ -174,7 +174,7 @@ header, footer {
 	// Flexbox setup
 	display: flex;
 	flex-flow: row wrap;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: stretch;
 	align-content: flex-start;
 
@@ -183,15 +183,13 @@ header, footer {
 
 		position: relative;
 		overflow: hidden;
-		width: $width;
-		height: $width;
+		width: 24%;
+		height: .24 * $card_width;
 		max-width: 512px;
 		max-height: 512px;
 		margin: {
-			top: .5%;
-			right: 1%;
-			bottom: .5%;
-			left: 0;
+			top: 1%;
+			bottom: 1%;
 		}
 		cursor: pointer;
 		border-radius: 4px;
@@ -254,46 +252,45 @@ header, footer {
 
 		// Resize on smaller screens
 		@media screen and (max-width: 950px) {
-			$width: (1/3 - .01) * $card_width; // 1/3 of width
+			// 1/3 of width
 
-			width: $width;
-			height: $width;
+			width: percentage(1/3 - .01);
+			height: (1/3 - .01) * $card_width;
 		}
 		@media screen and (max-width: 800px) {
+			// 1/4 of width
 			$card_width: 80vw;
-			$width: .24 * $card_width; // 1/4 of width
 
-			width: $width;
-			height: $width;
+			width: 24%;
+			height: .24 * $card_width;
 		}
 		@media screen and (max-width: 700px) {
+			// 1/3 of width
 			$card_width: 80vw;
-			$width: (1/3 - .01) * $card_width; // 1/3 of width
 
-			width: $width;
-			height: $width;
+			width: percentage(1/3 - .01);;
+			height: (1/3 - .01) * $card_width;
 		}
 		@media screen and (max-width: 500px) {
+			// 1/2 of width
 			$card_width: 80vw;
-			$width: .49 * $card_width; // 1/2 of width
 
-			width: $width;
-			height: $width;
+			width: 49%;
+			height: .49 * $card_width;
 		}
 		@media screen and (max-width: $mobile_l) {
+			// 1/2 of width
 			$card_width: 90vw;
-			$width: .49 * $card_width; // 1/2 of width
 
-			width: $width;
-			height: $width;
+			width: 49%;
+			height: .49 * $card_width;
 		}
 		@media screen and (max-width: $mobile_s) {
+			// Full width
 			$card_width: 90vw;
-			$width: $card_width; // Full width
-			margin: .5% 0;
 
-			width: $width;
-			height: $width;
+			width: 100%;
+			height: $card_width;
 		}
 	}
 }
