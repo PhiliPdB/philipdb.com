@@ -11,7 +11,8 @@ CREATE TABLE projects (
 	project_date DATE NULL,
 	project_creation_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-	PRIMARY KEY (project_id)
+	PRIMARY KEY (project_id),
+	UNIQUE KEY (project_tag)
 ) ENGINE = InnoDB;
 
 DROP TABLE IF EXISTS project_links;
