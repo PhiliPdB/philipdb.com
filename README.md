@@ -1,5 +1,6 @@
 # philipdb.com
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b5fa288b2a764bac82a25b638fafce38)](https://www.codacy.com/app/PhiliPdB/philipdb.com?utm_source=github.com&utm_medium=referral&utm_content=PhiliPdB/philipdb.com&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/PhiliPdB/philipdb.com.svg?branch=master)](https://travis-ci.org/PhiliPdB/philipdb.com)
 
 This is the source code of my website.
