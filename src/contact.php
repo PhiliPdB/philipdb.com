@@ -9,15 +9,19 @@ $main = new main();
 // Send email when post data is there
 if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) && isset($_POST["body"])
 	&& filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-	mail(
+	// Send email
+    mail(
 		"philip@philipdb.com",
 		$_POST["subject"],
 		$_POST["body"],
-		"From: philipdb.com <noreply@philipdb.com>" . "\r\n" .
-		"Reply-to: " . $_POST["email"] . "\r\n" .
-		"X-Mailer: PHP/" . phpversion()
+		implode("\r\n", [
+            "From: philipdb.com <noreply@philipdb.com>",
+            "Reply-to: " . $_POST["email"],
+            "X-Mailer: PHP/" . phpversion()
+        ])
 	);
-	$_POST = array();
+	// Clear post
+	$_POST = [];
 }
 
  ?>
