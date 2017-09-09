@@ -72,6 +72,9 @@ class main {
         return $projects;
     }
 
+    /**
+     * Setup database connection
+     */
     private function setupDb() {
         require "config.php";
 
