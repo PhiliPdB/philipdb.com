@@ -64,28 +64,28 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 		<h2>Contact form</h2>
 		<form action="" method="POST">
 			<div class="group">
-				<input type="text" required name="name" autocomplete>
+				<input type="text" required id="name" name="name" autocomplete="name">
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Name</label>
+				<label for="name">Name</label>
 			</div><br>
 			<div class="group">
-				<input type="email" required name="email" autocomplete oninput="this.className = 'validate'">
+				<input type="email" required id="email" name="email" autocomplete="email" oninput="this.className = 'validate'">
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Email</label>
+				<label for="email">Email</label>
 			</div><br>
 			<div class="group">
-				<input type="subject" required name="subject" autocomplete spellcheck>
+				<input type="text" required id="subject" name="subject" spellcheck>
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Subject</label>
+				<label for="subject">Subject</label>
 			</div><br>
 			<div class="group">
-				<textarea required name="body" columns="70" rows="4" autocomplete spellcheck></textarea>
+				<textarea required id="body" name="body" rows="4" spellcheck></textarea>
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Message</label>
+				<label for="body">Message</label>
 			</div><br>
 
 			<input type="submit" value="Send">
