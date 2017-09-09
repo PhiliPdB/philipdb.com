@@ -25,8 +25,9 @@ class main {
      */
     public function get_age($year = 1999, $month = 6, $day = 19) {
         $age = date('Y') - $year;
-        if (date('m') < $month) $age -= 1;
-        elseif (date('m') == $month && date('d') < $day) $age -= 1;
+        if (date('m') < $month || (date('m') == $month && date('d') < $day)) {
+            $age -= 1;
+        }
 
         return $age;
     }
