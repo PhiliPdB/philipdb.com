@@ -59,7 +59,7 @@ $main =  new main();
 					<li>Firebase</li>
 					<li>&#40;Material&#41; AngularJS</li>
 					<li>Arduino</li>
-					<li>Databases &#40;SQL&#41;</li>
+					<li>Databases &#40;MySQL&#41;</li>
 					<li>Responsive Layout and Design</li>
 					<li>Cross&#45;Browser Compatibility</li>
 				</ul>
