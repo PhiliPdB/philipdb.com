@@ -27,6 +27,7 @@ class main {
         $age = date('Y') - $year;
         if (date('m') < $month) $age -= 1;
         elseif (date('m') == $month && date('d') < $day) $age -= 1;
+
         return $age;
     }
 
@@ -74,13 +75,15 @@ class main {
 
     /**
      * Setup database connection
+     *
+     * @throws Exception
      */
     private function setupDb() {
         require "config.php";
 
         $this->db = new mysqli($db_credentials['host'], $db_credentials['username'], $db_credentials['password'], $db_credentials['db_name']);
         if ($this->db->connect_errno) {
-            die("Connection failed: " . $this->db->connect_error);
+            throw new Exception($this->db->connect_error, $this->db->connect_errno);
         }
         $this->db->set_charset("utf8");
     }
