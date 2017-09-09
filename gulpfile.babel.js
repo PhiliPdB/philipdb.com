@@ -179,7 +179,7 @@ function deploy() {
 
 	const globs = [
 		'build/**',
-		'!build/php/connection.php'
+		'!build/php/config.php'
 	];
 	const remotePath = $.util.env.beta ? config.beta_path : config.remote_path;
 

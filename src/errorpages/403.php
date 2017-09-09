@@ -2,9 +2,10 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/main.php');
+
+$main = new main();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@ function version($file) {
 
 	<title>403 - Forbidden</title>
 
-	<link rel="stylesheet" href="<?=version("../css/main.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -44,6 +45,6 @@ function version($file) {
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

@@ -2,10 +2,11 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-require('php/helper.php');
-require('php/database_helper.php');
+require('php/main.php');
 
-$projects = getProjects(4);
+$main = new main(true);
+
+$projects = $main->getProjects(4);
 
  ?>
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ $projects = getProjects(4);
 
 	<title>PhiliPdB</title>
 
-	<link rel="stylesheet" href="<?=version("css/home.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("css/home.css")?>">
 
 	<!-- Favicons -->
 	<?php include("favicons.html") ?>
@@ -47,7 +48,7 @@ $projects = getProjects(4);
 	<div id="about" class="card">
 		<h2>About me</h2>
 		<p class="first">
-			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I am <?=get_age(1999,06,19)?> years old and have developed multiple websites, web apps and Android apps. Sometimes it is sometimes hard to combine developing and school, but so far it has succeeded...
+			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I am <?=$main->get_age()?> years old and have developed multiple websites, web apps and Android apps. Sometimes it is sometimes hard to combine developing and school, but so far it has succeeded...
 		</p>
 		<a class="button" href="about">Learn more about me</a>
 	</div>
@@ -73,6 +74,6 @@ $projects = getProjects(4);
 	<?php require("components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

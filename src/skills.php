@@ -2,7 +2,9 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-require('../php/helper.php');
+require('../php/main.php');
+
+$main =  new main();
 
  ?>
 <!DOCTYPE html>
@@ -16,7 +18,7 @@ require('../php/helper.php');
 
 	<title>Skills</title>
 
-	<link rel="stylesheet" href="<?=version("../css/main.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -70,6 +72,6 @@ require('../php/helper.php');
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

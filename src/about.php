@@ -2,7 +2,9 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-require('../php/helper.php');
+require('../php/main.php');
+
+$main = new main();
 
  ?>
 <!DOCTYPE html>
@@ -16,7 +18,7 @@ require('../php/helper.php');
 
 	<title>About me</title>
 
-	<link rel="stylesheet" href="<?=version("../css/main.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -40,7 +42,7 @@ require('../php/helper.php');
 	<div class="card">
 		<h4>In short</h4>
 		<p>
-			I am a Dutch, <?=get_age(1999,06,19)?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
+			I am a Dutch, <?=$main->get_age()?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
 		</p>
 	</div>
 	<div class="card">
@@ -60,6 +62,6 @@ require('../php/helper.php');
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

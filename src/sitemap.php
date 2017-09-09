@@ -2,10 +2,11 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-require('../php/helper.php');
-require('../php/database_helper.php');
+require('../php/main.php');
 
-$projects = getProjects();
+$main = new main(true);
+
+$projects = $main->getProjects();
 
  ?>
 <!DOCTYPE html>
@@ -19,7 +20,7 @@ $projects = getProjects();
 
 	<title>Sitemap</title>
 
-	<link rel="stylesheet" href="<?=version("../css/main.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -27,7 +28,7 @@ $projects = getProjects();
 <body>
 	<!-- Google Analytics -->
 	<?php include_once("../analytics.html"); ?>
-
+    
 	<!-- Header -->
 	<?php require("../components/header.php"); ?>
 
@@ -61,6 +62,6 @@ $projects = getProjects();
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
