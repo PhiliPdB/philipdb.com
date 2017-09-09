@@ -70,7 +70,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 				<label>Name</label>
 			</div><br>
 			<div class="group">
-				<input type="email" required name="email" autocomplete oninput="this.className = "validate"">
+				<input type="email" required name="email" autocomplete oninput="this.className = 'validate'">
 				<span class="highlight"></span>
 				<span class="bar"></span>
 				<label>Email</label>
