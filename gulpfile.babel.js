@@ -20,7 +20,7 @@ const paths = {
 		dest: 'build/js/'
 	},
 	images: {
-		src: 'src/{images,favicons}/**/*.{jpg,jpeg,png}',
+		src: 'src/{images,favicons}/**/*.{jpg,jpeg,png,svg}',
 		dest: 'build/'
 	},
 	html: {
@@ -92,7 +92,7 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], ()
 	gulp.src('src/fonts/**.*')
 		.pipe($.changed('build/fonts'))
 		.pipe(gulp.dest('build/fonts'));
-	gulp.src('src/favicons/**.{json,xml,ico,svg}')
+	gulp.src('src/favicons/**.{json,xml,ico}')
 		.pipe($.changed('build/favicons'))
 		.pipe(gulp.dest('build/favicons'));
 	gulp.src('src/robots.txt')
@@ -155,10 +155,17 @@ gulp.task('build:js', () => {
 gulp.task('minify-images', () => {
 	gulp.src(paths.images.src)
 		.pipe($.changed(paths.images.dest))
-		.pipe($.imagemin({
-			progressive: true,
-			use: [pngquant()]
-		}))
+        .pipe($.imagemin(
+            [
+                $.imagemin.gifsicle({interlaced: true}),
+                $.imagemin.jpegtran({progressive: true}),
+                pngquant(),
+                $.imagemin.svgo({plugins: [{removeViewBox: true}]})
+            ],
+            {
+                verbose: true
+            }
+        ))
 		.pipe(gulp.dest(paths.images.dest));
 });
 
