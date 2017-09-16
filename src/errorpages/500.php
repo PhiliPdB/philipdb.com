@@ -36,7 +36,7 @@ $main = new main();
 <div class="card">
     <h2>500 - Internal Server Error</h2>
     <p>
-        Unfortunately, the server failed to perform the task you requested it to do.
+        Unfortunately, the server failed to perform the task it was requested to do.
     </p>
 </div>
 
