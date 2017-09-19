@@ -2,9 +2,10 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/main.php');
+
+$main = new main();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@ function version($file) {
 
 	<title>403 - Forbidden</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -36,7 +37,7 @@ function version($file) {
 	<div class="card">
 		<h2>403 - Forbidden</h2>
 		<p>
-			You don't have the permission to access <i><?=$_SERVER[REQUEST_URI]?></i> on this server.
+			You don't have the permission to access <i><?=$_SERVER["REQUEST_URI"]?></i> on this server.
 		</p>
 	</div>
 
@@ -44,6 +45,6 @@ function version($file) {
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

@@ -2,9 +2,10 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/main.php');
+
+$main =  new main();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@ function version($file) {
 
 	<title>Skills</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -58,7 +59,7 @@ function version($file) {
 					<li>Firebase</li>
 					<li>&#40;Material&#41; AngularJS</li>
 					<li>Arduino</li>
-					<li>Databases &#40;SQL&#41;</li>
+					<li>Databases &#40;MySQL&#41;</li>
 					<li>Responsive Layout and Design</li>
 					<li>Cross&#45;Browser Compatibility</li>
 				</ul>
@@ -71,6 +72,6 @@ function version($file) {
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

@@ -2,9 +2,12 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/main.php');
+
+$main = new main(true);
+
+$projects = $main->getProjects();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +20,7 @@ function version($file) {
 
 	<title>Sitemap</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -25,7 +28,7 @@ function version($file) {
 <body>
 	<!-- Google Analytics -->
 	<?php include_once("../analytics.html"); ?>
-
+    
 	<!-- Header -->
 	<?php require("../components/header.php"); ?>
 
@@ -43,13 +46,14 @@ function version($file) {
 			<li><a href="/">Home</a></li>
 			<li><a href="/about">About me</a></li>
 			<li><a href="/projects">My projects</a></li>
-			<li><a href="/skills">Skils</a></li>
+			<li><a href="/skills">Skills</a></li>
 			<li><a href="/contact">Contact</a></li>
 		</ul>
 		<h3>Projects</h3>
 		<ul class="links">
-			<li><a href="/projects#mastermind">Mastermind</a></li>
-			<li><a href="/projects#woording">Woording</a></li>
+            <?php foreach ($projects as $project): ?>
+                <li><a href="/projects#<?=$project['project_tag']?>"><?=$project['project_title']?></a></li>
+            <?php endforeach; ?>
 			<li><a href="//projects.philipdb.com">More projects</a></li>
 		</ul>
 	</div>
@@ -58,6 +62,6 @@ function version($file) {
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

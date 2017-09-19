@@ -2,15 +2,10 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function get_age($year, $month, $day) {
-	$age = date('Y') - $year;
-	if (date('m') < $month) $age -= 1;
-	elseif (date('m') == $month && date('d') < $day) $age -= 1;
-	return $age;
-}
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/main.php');
+
+$main = new main();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +18,7 @@ function version($file) {
 
 	<title>About me</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/main.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -47,7 +42,7 @@ function version($file) {
 	<div class="card">
 		<h4>In short</h4>
 		<p>
-			I am a Dutch, <?=get_age(1999,06,19)?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
+			I am a Dutch, <?=$main->get_age()?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
 		</p>
 	</div>
 	<div class="card">
@@ -67,6 +62,6 @@ function version($file) {
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

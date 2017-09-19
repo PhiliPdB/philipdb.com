@@ -2,22 +2,26 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('../php/main.php');
 
-// Send
+$main = new main();
+
+// Send email when post data is there
 if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) && isset($_POST["body"])
 	&& filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-	mail(
+	// Send email
+    mail(
 		"philip@philipdb.com",
 		$_POST["subject"],
 		$_POST["body"],
-		"From: philipdb.com <noreply@philipdb.com>" . "\r\n" .
-		"Reply-to: " . $_POST["email"] . "\r\n" .
-		"X-Mailer: PHP/" . phpversion()
+		implode("\r\n", [
+            "From: philipdb.com <noreply@philipdb.com>",
+            "Reply-to: " . $_POST["email"],
+            "X-Mailer: PHP/" . phpversion()
+        ])
 	);
-	$_POST = array();
+	// Clear post
+	$_POST = [];
 }
 
  ?>
@@ -32,7 +36,7 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 
 	<title>Contact</title>
 
-	<link rel="stylesheet" href="<?=version("../css/style.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("../css/contact.css")?>">
 
 	<!-- Favicons -->
 	<?php include("../favicons.html") ?>
@@ -60,28 +64,28 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 		<h2>Contact form</h2>
 		<form action="" method="POST">
 			<div class="group">
-				<input type="text" required name="name" autocomplete>
+				<input type="text" required id="name" name="name" autocomplete="name">
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Name</label>
+				<label for="name">Name</label>
 			</div><br>
 			<div class="group">
-				<input type="email" required name="email" autocomplete oninput="this.className = "validate"">
+				<input type="email" required id="email" name="email" autocomplete="email" oninput="this.className = 'validate'">
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Email</label>
+				<label for="email">Email</label>
 			</div><br>
 			<div class="group">
-				<input type="subject" required name="subject" autocomplete spellcheck>
+				<input type="text" required id="subject" name="subject" spellcheck>
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Subject</label>
+				<label for="subject">Subject</label>
 			</div><br>
 			<div class="group">
-				<textarea required name="body" columns="70" rows="4" autocomplete spellcheck></textarea>
+				<textarea required id="body" name="body" rows="4" spellcheck></textarea>
 				<span class="highlight"></span>
 				<span class="bar"></span>
-				<label>Message</label>
+				<label for="body">Message</label>
 			</div><br>
 
 			<input type="submit" value="Send">
@@ -92,6 +96,6 @@ if (isset($_POST["name"]) && isset($_POST["email"]) && isset($_POST["subject"]) 
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

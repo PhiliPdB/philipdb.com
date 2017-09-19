@@ -2,15 +2,12 @@
 // Enable PHP Gzip compression
 ob_start("ob_gzhandler");
 
-function get_age($year, $month, $day) {
-	$age = date('Y') - $year;
-	if (date('m') < $month) $age -= 1;
-	elseif (date('m') == $month && date('d') < $day) $age -= 1;
-	return $age;
-}
-function version($file) {
-	return $file . '?' . filemtime($file);
-}
+require('php/main.php');
+
+$main = new main(true);
+
+$projects = $main->getProjects(4);
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +20,7 @@ function version($file) {
 
 	<title>PhiliPdB</title>
 
-	<link rel="stylesheet" href="<?=version("css/style.css")?>">
+	<link rel="stylesheet" href="<?=$main->version("css/home.css")?>">
 
 	<!-- Favicons -->
 	<?php include("favicons.html") ?>
@@ -51,27 +48,24 @@ function version($file) {
 	<div id="about" class="card">
 		<h2>About me</h2>
 		<p class="first">
-			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I am <?=get_age(1999,06,19)?> years old and have developed multiple websites, web apps and Android apps. Sometimes it is sometimes hard to combine developing and school, but so far it has succeeded...
+			After learning to create interactive websites on my 13th, I began making up own projects to expand my knowledge. Now I am <?=$main->get_age()?> years old and have developed multiple websites, web apps and Android apps. Sometimes it is sometimes hard to combine developing and school, but so far it has succeeded...
 		</p>
 		<a class="button" href="about">Learn more about me</a>
 	</div>
+
+	<!-- Projects -->
 	<div id="projects" class="card">
 		<h2>Latest projects</h2>
 		<div class="projects">
-			<a class="project" id="mastermind" href="projects#mastermind">
-				<img src="images/projects/mastermind.png" alt="MasterMind" width="512" height="512">
-				<div class="description">
-					<div class="title">MasterMind</div>
-					<div class="subtitle">Web app</div>
-				</div>
-			</a>
-			<a href="projects#woording" class="project" id="woording">
-				<img src="images/projects/woording.png" alt="Woording" width="512" height="512">
-				<div class="description">
-					<div class="title">Woording</div>
-					<div class="subtitle">Android app</div>
-				</div>
-			</a>
+			<?php foreach ($projects as $project): ?>
+				<a id="<?=$project['project_tag']?>" class="project" href="projects#<?=$project['project_tag']?>">
+					<img src="images/projects/<?=$project['project_tag']?>.png" alt="<?=$project['project_title']?>" width="512" height="512">
+					<div class="description">
+						<div class="title"><?=$project['project_title']?></div>
+						<div class="subtitle"><?=$project['project_subtitle']?></div>
+					</div>
+				</a>
+			<?php endforeach; ?>
 		</div>
 		<a class="button" href="projects">View all my projects</a>
 	</div>
@@ -80,6 +74,6 @@ function version($file) {
 	<?php require("components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=version("js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
