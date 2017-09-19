@@ -5,7 +5,7 @@
     // Flexbox setup
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: stretch;
     align-content: flex-start;
 
@@ -21,6 +21,7 @@
         margin: {
             top: 1%;
             bottom: 1%;
+            right: 1%;
         }
         cursor: pointer;
         border-radius: 4px;
