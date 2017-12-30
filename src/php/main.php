@@ -7,6 +7,17 @@ class main {
      */
     private $db;
 
+    /**
+     * @var array links and names of the pages in the navigation
+     */
+    public $navigation = [
+        "/"             => "Home",
+        "/about/"       => "About me",
+        "/projects/"    => "Projects",
+        "/skills/"      => "Skills",
+        "/contact/"     => "Contact"
+    ];
+
     public function __construct($setupDb = false) {
 
         if ($setupDb) {

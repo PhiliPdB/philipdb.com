@@ -1,11 +1,9 @@
 <footer class="card">
 	<div class="navigation">
-		<div class="link"><a href="/">Home</a></div>
-		<div class="link"><a href="/about">About me</a></div>
-		<div class="link"><a href="/projects">Projects</a></div>
-		<div class="link"><a href="/skills">Skills</a></div>
-		<div class="link"><a href="/contact">Contact</a></div>
-		<div class="link"><a href="/sitemap">Sitemap</a></div>
+        <?php foreach ($main->navigation as $link=>$name): ?>
+            <div class="link"><a href="<?=$link?>"><?=$name?></a></div>
+        <?php endforeach; ?>
+		<div class="link"><a href="/sitemap/">Sitemap</a></div>
 	</div>
 	<div class="copyright">Copyright &copy; <?=date('Y')?> PhiliPdB</div>
 	<div class="social">
