@@ -42,19 +42,26 @@ $main = new main();
 	<div class="card">
 		<h4>In short</h4>
 		<p>
-			I am a Dutch, <?=$main->get_age()?> years old, student with a passion for Android and web development. Which resulted in multiple web and Android apps.
+			I am a Dutch, <?=$main->get_age()?> years old, student with a passion for Android and web development.
+            Which resulted in multiple web and Android apps.
 		</p>
 	</div>
 	<div class="card">
 		<h4>History</h4>
 		<p>
-			When I was 13, I started with learning HTML, CSS and JavaScript to create my first very own website. After knowing how te create a website I began to make little games in Javascript to expand my knowledge. After a year I wanted more and created a very simple Snake game for my Android phone. After that, I continued developing Android apps, of which the result can be seen on my developer account.
+			At the age of 13, I started with learning HTML, CSS and (a bit) JavaScript to create my first very own website.
+            When I knew how to create a website I began to make little games in Javascript to expand my knowledge.
+            Then I started to look into developing things for android. I first created a very simple snake game.
+            After that, I continued developing Android and web apps. Sometimes even as school project.
 		</p>
 	</div>
 	<div class="card">
 		<h4>My current life</h4>
 		<p>
-			Now I am an active Android and web developer who combines school and development, but I do not only develop web and Android apps. Sometimes I work with Python, which is a great language for scripting. Also I have tried multiple frameworks and programming tools.
+            Now I am studying computer science and mathematics at Utrecht University, so I don't have lot of time to do side projects.
+
+			<!--Now I am an active Android and web developer who combines school and development, but I do not only develop web and Android apps.
+            Sometimes I work with Python, which is a great language for scripting. Also I have tried multiple frameworks and programming tools.-->
 		</p>
 	</div>
 
