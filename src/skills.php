@@ -50,6 +50,7 @@ $main =  new main();
 					<li>PHP</li>
 					<li>Version Control &#40;GIT&#41;</li>
 					<li>Python 3</li>
+                    <li>C#</li>
 				</ul>
 			</div>
 			<div>
@@ -60,6 +61,7 @@ $main =  new main();
 					<li>&#40;Material&#41; AngularJS</li>
 					<li>Arduino</li>
 					<li>Databases &#40;MySQL&#41;</li>
+                    <li>Unity</li>
 					<li>Responsive Layout and Design</li>
 					<li>Cross&#45;Browser Compatibility</li>
 				</ul>
