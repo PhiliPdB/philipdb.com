@@ -70,6 +70,28 @@ $main =  new main();
 		<a class="button" href="/contact">Want to contact me?</a>
 	</div>
 
+    <div class="card" id="education">
+        <h2 class="sideways">Education</h2>
+
+        <h3 class="first">Bachelor Computer Science</h3>
+        <p>
+            Utrecht University <br>
+            2017 - now
+        </p>
+
+        <h3>Bachelor Mathematics</h3>
+        <p>
+            Utrecht University <br>
+            2017 - now
+        </p>
+
+        <h3>VWO</h3>
+        <p>
+            Guido de Brès, Amersfoort <br>
+            2011 - 2017
+        </p>
+    </div>
+
 	<!-- Footer -->
 	<?php require("../components/footer.php"); ?>
 
