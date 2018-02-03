@@ -97,6 +97,25 @@ $paragraph_text: rgba(0, 0, 0, .54);
 		}
 	}
 
+	@media screen and (min-width: $mobile_l + 1) {
+		h2.sideways {
+			position: absolute;
+
+			transform: rotate(-90deg) translate(-70%, 0);
+			transform-origin: left bottom 0;
+
+			color: $paragraph_text;
+			font: {
+				weight: bold;
+				size: $default_font_size * 2.5;
+			}
+		}
+
+		.first {
+			margin-top: 0;
+		}
+	}
+
 	@media screen and (max-width: 800px) {
 		$card_width: 80vw;
 		padding: $padding_unit (100vw - $card_width)/2;
