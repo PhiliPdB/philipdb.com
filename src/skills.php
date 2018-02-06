@@ -9,6 +9,8 @@ $main =  new main(true);
 // Get skills from database
 $skills = $main->getSkills();
 
+$education = $main->getEducation();
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,23 +72,15 @@ $skills = $main->getSkills();
     <div class="card" id="education">
         <h2 class="sideways">Education</h2>
 
-        <h3 class="first">Bachelor Computer Science</h3>
-        <p>
-            Utrecht University <br>
-            2017 - now
-        </p>
-
-        <h3>Bachelor Mathematics</h3>
-        <p>
-            Utrecht University <br>
-            2017 - now
-        </p>
-
-        <h3>VWO</h3>
-        <p>
-            Guido de Brès, Amersfoort <br>
-            2011 - 2017
-        </p>
+        <div class="first">
+            <?php foreach ($education as $item): ?>
+                <h3><?=$item["education_name"]?></h3>
+                <p>
+                    <?=$item["education_institution_name"]?><br>
+                    <?=$item["education_start_year"]?> - <?=$item["education_end_year"] ? $item["education_end_year"] : "now"?>
+                </p>
+            <?php endforeach; ?>
+        </div>
     </div>
 
 	<!-- Footer -->

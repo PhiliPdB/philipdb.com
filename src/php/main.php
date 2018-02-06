@@ -97,11 +97,24 @@ class main {
 
         // Create array of different levels of skills
         $skills = [
-            "day-to-day" => $this->db->query("SELECT skill_name FROM skills WHERE more_experience = TRUE ORDER BY skill_name")->fetch_all(MYSQLI_ASSOC),
-            "experience" => $this->db->query("SELECT skill_name FROM skills WHERE more_experience = FALSE ORDER BY skill_name")->fetch_all(MYSQLI_ASSOC)
+            "day-to-day" => $this->db->query("SELECT skill_name FROM skills WHERE skill_more_experience = TRUE ORDER BY skill_name")->fetch_all(MYSQLI_ASSOC),
+            "experience" => $this->db->query("SELECT skill_name FROM skills WHERE skill_more_experience = FALSE ORDER BY skill_name")->fetch_all(MYSQLI_ASSOC)
         ];
 
         return $skills;
+    }
+
+    /**
+     * Get education things from the database
+     *
+     * @return array|bool
+     */
+    public function getEducation() {
+        if ($this->db == null) {
+            return false;
+        }
+
+        return $this->db->query("SELECT * FROM education ORDER BY education_start_year DESC, education_id DESC")->fetch_all(MYSQLI_ASSOC);
     }
 
     /**
