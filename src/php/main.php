@@ -86,6 +86,25 @@ class main {
     }
 
     /**
+     * Get skills from database
+     *
+     * @return array|bool
+     */
+    public function getSkills() {
+        if ($this->db == null) {
+            return false;
+        }
+
+        // Create array of different levels of skills
+        $skills = [
+            "day-to-day" => $this->db->query("SELECT skill_name FROM skills WHERE more_experience = TRUE ORDER BY skill_name")->fetch_all(MYSQLI_ASSOC),
+            "experience" => $this->db->query("SELECT skill_name FROM skills WHERE more_experience = FALSE ORDER BY skill_name")->fetch_all(MYSQLI_ASSOC)
+        ];
+
+        return $skills;
+    }
+
+    /**
      * Setup database connection
      *
      * @throws Exception

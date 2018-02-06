@@ -4,7 +4,10 @@ ob_start("ob_gzhandler");
 
 require('../php/main.php');
 
-$main =  new main();
+$main =  new main(true);
+
+// Get skills from database
+$skills = $main->getSkills();
 
  ?>
 <!DOCTYPE html>
@@ -40,31 +43,25 @@ $main =  new main();
 
 	<div class="card">
 		<h2>Technologies</h2>
+        <p style="margin-top: -10px;">
+            <small>In no particular order.</small>
+        </p>
 		<div class="columns first">
 			<div>
-				<h3>Day&#45;to&#45;day comfort</h3>
-				<ul>
-					<li>Java &#40;Android&#41;</li>
-					<li>JavaScript</li>
-					<li>HTML5 &#47; CSS3 &#40;SCSS&#41;</li>
-					<li>PHP</li>
-					<li>Version Control &#40;GIT&#41;</li>
-					<li>Python 3</li>
-                    <li>C#</li>
-				</ul>
+				<h3>Day-to-day comfort</h3>
+                <ul>
+                    <?php foreach ($skills["day-to-day"] as $skill): ?>
+                        <li><?=$skill["skill_name"]?></li>
+                    <?php endforeach; ?>
+                </ul>
 			</div>
 			<div>
 				<h3>Experience with</h3>
-				<ul>
-					<li>GulpJS</li>
-					<li>Firebase</li>
-					<li>&#40;Material&#41; AngularJS</li>
-					<li>Arduino</li>
-					<li>Databases &#40;MySQL&#41;</li>
-                    <li>Unity</li>
-					<li>Responsive Layout and Design</li>
-					<li>Cross&#45;Browser Compatibility</li>
-				</ul>
+                <ul>
+                    <?php foreach ($skills["experience"] as $skill): ?>
+                        <li><?=$skill["skill_name"]?></li>
+                    <?php endforeach; ?>
+                </ul>
 			</div>
 		</div>
 		<a class="button" href="/contact">Want to contact me?</a>
