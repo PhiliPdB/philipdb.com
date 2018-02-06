@@ -58,7 +58,7 @@ $projects = $main->getProjects(4);
 	<!-- Projects -->
 	<div id="projects" class="card">
 		<h2>Latest projects</h2>
-		<div class="projects">
+		<div class="projects first">
 			<?php foreach ($projects as $project): ?>
 				<a id="<?=$project['project_tag']?>" class="project" href="projects#<?=$project['project_tag']?>">
 					<img src="images/projects/<?=$project['project_tag']?>.png" alt="<?=$project['project_title']?>" width="512" height="512">
