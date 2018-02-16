@@ -74,6 +74,7 @@ header, footer {
         // Background
         background: {
             color: $dark_grey;
+            // TODO Use image-set when spec is ready
             image: url("../images/banner.jpg");
             repeat: no-repeat;
             position: left center;
