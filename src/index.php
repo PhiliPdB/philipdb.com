@@ -63,8 +63,11 @@ $projects = $main->getProjects(4);
 				<a id="<?=$project['project_tag']?>" class="project" href="projects#<?=$project['project_tag']?>">
 					<img srcset="images/projects/<?=$project['project_tag']?>.png?w=200&h=200 200w,
                                  images/projects/<?=$project['project_tag']?>.png?w=300&h=300 300w,
-                                 images/projects/<?=$project['project_tag']?>.png?w=400&h=400 400w,
                                  images/projects/<?=$project['project_tag']?>.png 512w"
+                         sizes="(max-width:  320px) 300px,
+                                (max-width: 1024px) 200px,
+                                (max-width: 2000px) 300px,
+                                512px"
                          src="images/projects/<?=$project['project_tag']?>.png"
                          alt="<?=$project['project_title']?>"
                          width="512" height="512">
