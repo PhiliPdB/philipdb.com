@@ -61,7 +61,13 @@ $projects = $main->getProjects(4);
 		<div class="projects first">
 			<?php foreach ($projects as $project): ?>
 				<a id="<?=$project['project_tag']?>" class="project" href="projects#<?=$project['project_tag']?>">
-					<img src="images/projects/<?=$project['project_tag']?>.png" alt="<?=$project['project_title']?>" width="512" height="512">
+					<img srcset="images/projects/<?=$project['project_tag']?>.png?w=200&h=200 200w,
+                                 images/projects/<?=$project['project_tag']?>.png?w=300&h=300 300w,
+                                 images/projects/<?=$project['project_tag']?>.png?w=400&h=400 400w,
+                                 images/projects/<?=$project['project_tag']?>.png 512w"
+                         src="images/projects/<?=$project['project_tag']?>.png"
+                         alt="<?=$project['project_title']?>"
+                         width="512" height="512">
 					<div class="description">
 						<div class="title"><?=$project['project_title']?></div>
 						<div class="subtitle"><?=$project['project_subtitle']?></div>
