@@ -66,7 +66,6 @@ $projects = $main->getProjects(4);
                                  images/projects/<?=$project['project_tag']?>.png 512w"
                          sizes="(max-width:  320px) 300px,
                                 (max-width: 1024px) 250px,
-                                (max-width: 2000px) 400px,
                                 512px"
                          src="images/projects/<?=$project['project_tag']?>.png"
                          alt="<?=$project['project_title']?>"
