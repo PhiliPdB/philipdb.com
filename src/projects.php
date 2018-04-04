@@ -49,7 +49,11 @@ $projects = $main->getProjects();
 			<p class="first"><?=$project['project_description']?></p>
 			<!-- Project links -->
 			<?php foreach ($project['project_links'] as $project_link): ?>
-				<a class="button" href="<?=$project_link['project_link_url']?>" target="_blank"><?=$project_link['project_link_text']?></a>
+                <?php
+                    // Parse variables in url string
+                    $link = str_replace("{{domain}}", $_SERVER['HTTP_HOST'], $project_link['project_link_url']);
+                 ?>
+				<a class="button" href="<?=$link?>" target="_blank"><?=$project_link['project_link_text']?></a>
 			<?php endforeach; ?>
 		</div>
 	<?php endforeach; ?>
