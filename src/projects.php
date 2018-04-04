@@ -61,7 +61,7 @@ $projects = $main->getProjects();
 		<p class="first">
 			These are not my only projects. You can view more by clicking on the button below.
 		</p>
-		<a class="button" href="//projects.philipdb.com" target="_blank">Projects website</a>
+		<a class="button" href="//projects.<?=$_SERVER['HTTP_HOST']?>>" target="_blank">Projects website</a>
 	</div>
 
 	<!-- Footer -->
