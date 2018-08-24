@@ -28,5 +28,5 @@ cache:
 
 # Decrypt private key
 before_install:
-- openssl aes-256-cbc -K $encrypted_7baf1f332e19_key -iv $encrypted_7baf1f332e19_iv
-  -in ./.travis/id_rsa.enc -out ./.travis/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_00bf03e4b5a1_key -iv $encrypted_00bf03e4b5a1_iv
+  -in .travis/id_rsa.enc -out .travis/id_rsa -d
