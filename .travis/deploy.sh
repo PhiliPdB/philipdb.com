@@ -3,6 +3,8 @@
 # Start ssh agent cache
 eval "$(ssh-agent -s)"
 
+cat $HOME/.ssh/known_hosts
+
 chmod 600 .travis/id_rsa    # Allow read access to the private key
 ssh-add .travis/id_rsa      # Add the private key to SSH
 
