@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /errorpages/
 Disallow: /components/
 Disallow: /php/
-Disallow: /mp4/
+Disallow: /archive/
