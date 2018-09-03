@@ -198,36 +198,6 @@ gulp.task('minify-images', () => {
 		.pipe(gulp.dest(paths.images.dest));
 });
 
-// Deploying
-gulp.task('deploy', deploy);
-function deploy() {
-	let config;
-	try {
-		config = require('./config.json');
-	} catch (error) {
-		config = {
-			host: $.util.env.host,
-			user: $.util.env.user,
-			password: $.util.env.password,
-			remote_path: $.util.env.path
-		}
-	}
-
-	const globs = [
-		'build/**',
-		'!build/php/config.php'
-	];
-	const remotePath = $.util.env.beta ? config.beta_path : config.remote_path;
-
-	return gulp.src(globs, { base: './build', buffer: false })
-		.pipe($.sftp({
-			host: config.host,
-			user: config.user,
-			pass: config.password,
-			remotePath: remotePath
-		}));
-}
-
 // MISC
 gulp.task('rebuild', ['clear:build', 'build']);
 
