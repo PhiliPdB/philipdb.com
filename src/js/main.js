@@ -69,6 +69,7 @@ const startPosition = {
 };
 let startedSwipe = false;
 let drawerWidth;
+let startTime;
 
 function setupSwipeDrawer() {
 	// Touch start
@@ -80,6 +81,7 @@ function setupSwipeDrawer() {
 			startPosition.x = touch.pageX;
 			startPosition.y = touch.pageY;
 			drawerWidth = drawer.offsetWidth;
+			startTime = new Date();
 			startedSwipe = true;
 		}
 	});
@@ -109,8 +111,51 @@ function setupSwipeDrawer() {
 	});
 
 	addEvent(document.body, "touchend", (event) => {
+		// Check if a swipe started
+		if (!startedSwipe) return;
+
+		// Get first touch point
 		const touch = event.changedTouches[0];
-		if (startedSwipe && touch.pageX <= drawerWidth / 2) {
+		
+		// Calculate speed and direction
+		let distance = (touch.pageX - startPosition.x) / window.devicePixelRatio;
+		let timeDiff = (new Date() - startTime) / 1000; // Time difference in seconds
+		let speed = Math.abs(distance) / timeDiff;
+		
+		// For testing purposes only
+		document.querySelector("#speed").innerHTML = speed;
+		document.querySelector("#direction").innerHTML = distance;
+
+		if (speed > 300) {
+			if (distance < 0) {
+				// Finish closing
+				drawerOpen = false;
+				startedSwipe = false;
+
+				// Remove transitions and reset class name
+				drawer.style.transition = "";
+				drawer.style.webkitTransition = "";
+				drawer.style.transform = "";
+				drawer.style.webkitTransform = "";
+
+				drawer.className = "";
+			} else {
+				// Finish opening
+				drawerOpen = true;
+				startedSwipe = false;
+
+				// Remove transitions and set class name to open
+				drawer.style.transition = "";
+				drawer.style.webkitTransition = "";
+				drawer.style.transform = "";
+				drawer.style.webkitTransform = "";
+
+				drawer.className = "open";
+			}
+			return;
+		}
+		
+		if (touch.pageX <= drawerWidth / 2) {
 			// Finish closing the drawer
 			drawerOpen = false;
 			startedSwipe = false;
@@ -122,7 +167,7 @@ function setupSwipeDrawer() {
 			drawer.style.webkitTransform = "";
 
 			drawer.className = "";
-		} else if (startedSwipe && touch.pageX > drawerWidth / 2) {
+		} else if (touch.pageX > drawerWidth / 2) {
 			// Finish opening the drawer
 			drawerOpen = true;
 			startedSwipe = false;
