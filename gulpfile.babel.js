@@ -4,6 +4,12 @@ import browserSync from 'browser-sync';
 import pngquant from 'imagemin-pngquant';
 import del from 'del';
 
+// For handling js imports
+import browserify from 'browserify';
+import source from 'vinyl-source-stream';
+import glob from 'glob';
+import eventStream from 'event-stream';
+
 const $ = gulpLoadPlugins({
 	rename: {
 		'gulp-connect-php': 'phpConnect'
@@ -138,17 +144,40 @@ gulp.task('eslint', () => {
 		.pipe($.eslint.format());
 });
 
-gulp.task('build:js', () => {
-	gulp.src(paths.scripts.src)
-		.pipe($.changed(paths.scripts.dest))
-		.pipe($.babel())
-		.pipe($.concat('script.js'))
-		// Only uglify if gulp is ran with '--type production' or '--type deploy'
-		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.uglify() : $.util.noop())
-		.pipe(gulp.dest(paths.scripts.dest))
-		.pipe(browserSync.reload({
-			stream: true
-		}));
+gulp.task('build:js', (done) => {
+	let debug = !($.util.env.type === 'production' || $.util.env.type === 'deploy');
+
+	glob(paths.scripts.src, (error, files) => {
+        if (error) done(error);
+
+        let tasks = files.map((entry) => {
+            if (!debug) {
+                return browserify({
+                    entries: [entry],
+                    standalone: "app",
+                    debug: false
+                })
+                    //.transform("babelify")
+                    //.transform("uglifyify")
+                    .bundle()
+                    .pipe(source(entry.replace("src/js/", "")))
+                    .pipe(gulp.dest(paths.scripts.dest))
+            } else {
+                return browserify({
+                    entries: [entry],
+                    standalone: "app",
+                    debug: true
+                })
+                    .bundle()
+                    .pipe(source(entry.replace("src/js/", "")))
+                    .pipe(gulp.dest(paths.scripts.dest))
+                    .pipe(browserSync.reload({
+                        stream: true
+                    }));
+            }
+        });
+        eventStream.merge(tasks).on('end', done);
+	});
 });
 
 // Images

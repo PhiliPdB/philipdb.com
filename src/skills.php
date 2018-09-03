@@ -87,6 +87,6 @@ $education = $main->getEducation();
 	<?php require("../components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=$main->version("../js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("../js/main.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

@@ -44,6 +44,23 @@ $projects = $main->getProjects(4);
 		</div>
 	</div>
 
+	<style>
+		.overlay {
+			position: fixed;
+			z-index: 99999;
+			top: 0;
+			right: 0;
+			color: white;
+			width: 150px;
+		}
+	</style>
+	<div class="overlay">
+		<p>
+			Speed: <span id="speed"></span><br>
+			Direction: <span id="direction"></span>
+		</p>
+	</div>
+
 	<!-- Cards -->
 	<div id="about" class="card">
 		<h2>About me</h2>
@@ -84,6 +101,6 @@ $projects = $main->getProjects(4);
 	<?php require("components/footer.php"); ?>
 
 	<!-- Scripts -->
-	<script src="<?=$main->version("js/script.js")?>" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="<?=$main->version("js/main.js")?>" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

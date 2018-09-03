@@ -9,7 +9,7 @@
 </nav>
 <div id="header_background"></div>
 <header>
-	<svg class="menu" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" onclick="openDrawer()">
+	<svg class="menu" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" onclick="app.drawer.open()">
 		<path d="M0 0h24v24H0z" fill="none"/>
 		<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
 	</svg>
