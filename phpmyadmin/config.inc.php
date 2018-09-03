@@ -26,7 +26,7 @@ $i++;
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
 $cfg['Servers'][$i]['user'] = 'root';
-$cfg['Servers'][$i]['host'] = 'localhost'; // if this doesn't work, try 'localhost'
+$cfg['Servers'][$i]['host'] = 'localhost:3306'; // if this doesn't work, try 'localhost'
 // $cfg['Servers'][$i]['port'] = '3306';
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
