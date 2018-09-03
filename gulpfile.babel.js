@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import pngquant from 'imagemin-pngquant';
 import del from 'del';
@@ -7,14 +6,23 @@ import del from 'del';
 // For handling js imports
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
 import glob from 'glob';
 import eventStream from 'event-stream';
 
+// Load gulp plugins
+import gulpLoadPlugins from 'gulp-load-plugins';
 const $ = gulpLoadPlugins({
 	rename: {
 		'gulp-connect-php': 'phpConnect'
 	}
 });
+
+// Es6 uglify
+import uglifyjs from "uglify-es";
+import composer from "gulp-uglify/composer";
+
+const minify = composer(uglifyjs, console);
 
 const paths = {
 	styles: {
@@ -31,7 +39,7 @@ const paths = {
 	},
 	html: {
 		src: 'src/**/*.{php,html}',
-		watch: ['src/*.php', 'src/components/**/*.html', 'src/php/**/*.php'],
+		watch: ['src/*.php', 'src/components/**/*.php', 'src/php/**/*.php'],
 		dest: 'build/'
 	}
 };
@@ -157,10 +165,10 @@ gulp.task('build:js', (done) => {
                     standalone: "app",
                     debug: false
                 })
-                    //.transform("babelify")
-                    //.transform("uglifyify")
                     .bundle()
-                    .pipe(source(entry.replace("src/js/", "")))
+					.pipe(source(entry.replace("src/js/", "")))
+					.pipe(buffer())
+					.pipe(minify())
                     .pipe(gulp.dest(paths.scripts.dest))
             } else {
                 return browserify({
