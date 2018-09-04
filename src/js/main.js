@@ -11,7 +11,7 @@ window.onload = function() {
 	drawer.setup();
 }
 
-function updateHeaderBackground(event) {
+function updateHeaderBackground() {
 	const header = document.getElementById("header_background");
 	const banner = document.getElementById("home");
 	const scrollTop = window.scrollY;

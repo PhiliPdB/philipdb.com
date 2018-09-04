@@ -84,15 +84,15 @@ gulp.task('browser-sync', () => {
 	browserSync({
 		files: liveReloadFiles,
 		proxy: 'localhost:6000',
-    	port: 8080,
-    	open: false,
-    	ui: {
-    		port: 3001,
-    		weinre: {
-    			port: 8000
-    		}
-    	}
-	}, (err, bs) => {
+		port: 8080,
+		open: false,
+		ui: {
+			port: 3001,
+			weinre: {
+				port: 8000
+			}
+		}
+	}, (err) => {
 		if (err)
 			console.log(err);
 		else
@@ -153,38 +153,38 @@ gulp.task('eslint', () => {
 });
 
 gulp.task('build:js', (done) => {
-	let debug = !($.util.env.type === 'production' || $.util.env.type === 'deploy');
+	const debug = !($.util.env.type === 'production' || $.util.env.type === 'deploy');
 
 	glob(paths.scripts.src, (error, files) => {
-        if (error) done(error);
+		if (error) done(error);
 
-        let tasks = files.map((entry) => {
-            if (!debug) {
-                return browserify({
-                    entries: [entry],
-                    standalone: "app",
-                    debug: false
-                })
-                    .bundle()
+		const tasks = files.map((entry) => {
+			if (!debug) {
+				return browserify({
+					entries: [entry],
+					standalone: "app",
+					debug: false
+				})
+					.bundle()
 					.pipe(source(entry.replace("src/js/", "")))
 					.pipe(buffer())
 					.pipe(minify())
-                    .pipe(gulp.dest(paths.scripts.dest))
-            } else {
-                return browserify({
-                    entries: [entry],
-                    standalone: "app",
-                    debug: true
-                })
-                    .bundle()
-                    .pipe(source(entry.replace("src/js/", "")))
-                    .pipe(gulp.dest(paths.scripts.dest))
-                    .pipe(browserSync.reload({
-                        stream: true
-                    }));
-            }
-        });
-        eventStream.merge(tasks).on('end', done);
+					.pipe(gulp.dest(paths.scripts.dest))
+			}
+				
+			return browserify({
+				entries: [entry],
+				standalone: "app",
+				debug: true
+			})
+				.bundle()
+				.pipe(source(entry.replace("src/js/", "")))
+				.pipe(gulp.dest(paths.scripts.dest))
+				.pipe(browserSync.reload({
+					stream: true
+				}));
+		});
+		eventStream.merge(tasks).on('end', done);
 	});
 });
 
@@ -192,23 +192,23 @@ gulp.task('build:js', (done) => {
 gulp.task('minify-images', () => {
 	gulp.src(paths.images.src)
 		.pipe($.changed(paths.images.dest))
-        .pipe($.imagemin(
-            [
-                $.imagemin.gifsicle({interlaced: true}),
-                $.imagemin.jpegtran({progressive: true}),
-                pngquant(),
-                $.imagemin.svgo({plugins: [{removeViewBox: true}]})
-            ],
-            {
-                verbose: true
-            }
-        ))
+		.pipe($.imagemin(
+			[
+				$.imagemin.gifsicle({interlaced: true}),
+				$.imagemin.jpegtran({progressive: true}),
+				pngquant(),
+				$.imagemin.svgo({plugins: [{removeViewBox: true}]})
+			],
+			{
+				verbose: true
+			}
+		))
 		.pipe(gulp.dest(paths.images.dest));
 });
 
 // MISC
 gulp.task('rebuild', ['clear:build', 'build']);
 
-gulp.task('clear:build', done => {
+gulp.task('clear:build', () => {
 	return del('build');
 });
