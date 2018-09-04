@@ -47,7 +47,7 @@ const liveReloadFiles = [
 	'build/css/**/*.css',
 	'build/js/**/*.js',
 	'build/images/**/*.{png,jpg,jpeg}',
-	'build/components/**/*.html',
+	'build/components/**/*.php',
 	'build/**/index.php'
 ];
 
@@ -106,14 +106,14 @@ gulp.task('build', ['build:html', 'build:scss', 'build:js', 'minify-images'], ()
 	gulp.src('src/fonts/**.*')
 		.pipe($.changed('build/fonts'))
 		.pipe(gulp.dest('build/fonts'));
+	
 	gulp.src('src/favicons/**.{json,xml,ico}')
 		.pipe($.changed('build/favicons'))
 		.pipe(gulp.dest('build/favicons'));
+	
 	gulp.src('src/robots.txt')
 		.pipe($.changed('build/'))
 		.pipe(gulp.dest('build/'));
-
-	if ($.util.env.type === 'deploy') deploy();
 });
 
 // HTML/php stuff
