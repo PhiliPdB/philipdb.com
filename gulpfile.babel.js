@@ -126,10 +126,7 @@ gulp.task('build:html', () => {
 				path.basename = 'index';
 			}
 		}))
-		.pipe(gulp.dest(paths.html.dest))
-		.pipe(browserSync.reload({
-			stream: true
-		}));
+		.pipe(gulp.dest(paths.html.dest));
 });
 
 // scss stuff
@@ -139,10 +136,7 @@ gulp.task('build:scss', () => {
 		.pipe($.autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
 		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.cssnano() : $.util.noop())
-		.pipe(gulp.dest(paths.styles.dest))
-		.pipe(browserSync.reload({
-			stream: true
-		}));
+		.pipe(gulp.dest(paths.styles.dest));
 });
 
 // JS stuff
@@ -179,10 +173,7 @@ gulp.task('build:js', (done) => {
 			})
 				.bundle()
 				.pipe(source(entry.replace("src/js/", "")))
-				.pipe(gulp.dest(paths.scripts.dest))
-				.pipe(browserSync.reload({
-					stream: true
-				}));
+				.pipe(gulp.dest(paths.scripts.dest));
 		});
 		eventStream.merge(tasks).on('end', done);
 	});
