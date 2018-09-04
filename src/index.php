@@ -44,23 +44,6 @@ $projects = $main->getProjects(4);
 		</div>
 	</div>
 
-	<style>
-		.overlay {
-			position: fixed;
-			z-index: 99999;
-			top: 0;
-			right: 0;
-			color: white;
-			width: 150px;
-		}
-	</style>
-	<div class="overlay">
-		<p>
-			Speed: <span id="speed"></span><br>
-			Direction: <span id="direction"></span>
-		</p>
-	</div>
-
 	<!-- Cards -->
 	<div id="about" class="card">
 		<h2>About me</h2>
