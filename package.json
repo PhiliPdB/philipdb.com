@@ -23,12 +23,13 @@
     "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
     "imagemin-pngquant": "^5.1.0",
+    "swipabledrawer": "^0.1.0",
     "uglify-es": "^3.3.9",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.11.1",
+    "browser-sync": "^2.24.7",
     "del": "^3.0.0",
     "eslint": "^4.6.1",
     "gulp-cache": "^1.0.2",
