@@ -2,7 +2,7 @@ $header_height: 56px;
 $header_break: 540px;
 $link_font_size: 20px;
 
-#navigation_drawer {
+SwipeableDrawer {
 	position: fixed;
 	top: 0;
 	left: calc(0px - (100vw - 56px) - 30px);

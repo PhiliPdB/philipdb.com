@@ -1,12 +1,12 @@
 <?php $page = $_SERVER["REQUEST_URI"];?>
 
-<nav id="navigation_drawer">
+<SwipeableDrawer>
 	<div class="navigation">
         <?php foreach ($main->navigation as $link=>$name): ?>
             <div class="link"><a href="<?=$link?>"><?=$name?></a></div>
         <?php endforeach; ?>
 	</div>
-</nav>
+</SwipeableDrawer>
 <div id="header_background"></div>
 <header>
 	<svg class="menu" fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" onclick="app.drawer.open()">

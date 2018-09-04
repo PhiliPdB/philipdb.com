@@ -1,5 +1,5 @@
-const Drawer = require("SwipableDrawer");
-const drawer = new Drawer(document.querySelector("#navigation_drawer"));
+const Drawer = require("SwipeableDrawer");
+const drawer = new Drawer();
 
 window.onload = function() {
 	// Set up everything...
