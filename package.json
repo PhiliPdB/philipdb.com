@@ -23,7 +23,7 @@
     "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
     "imagemin-pngquant": "^5.1.0",
-    "swipeabledrawer": "^0.2.0",
+    "swipeabledrawer": "^0.2.2",
     "uglify-es": "^3.3.9",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
