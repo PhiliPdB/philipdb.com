@@ -1,4 +1,4 @@
-const Drawer = require("SwipeableDrawer");
+const Drawer = require("swipeabledrawer");
 const drawer = new Drawer();
 
 window.onload = function() {
