@@ -132,7 +132,11 @@ gulp.task('build:html', () => {
 // scss stuff
 gulp.task('build:scss', () => {
 	gulp.src(paths.styles.src)
-		.pipe($.sass().on('error', $.sass.logError))
+		.pipe($.sass({
+			"includePaths": [
+				"node_modules"
+			]
+		}).on('error', $.sass.logError))
 		.pipe($.autoprefixer())
 		// Only uglify if gulp is ran with '--type production' or '--type deploy'
 		.pipe($.util.env.type === 'production' || $.util.env.type === 'deploy' ? $.cssnano() : $.util.noop())
