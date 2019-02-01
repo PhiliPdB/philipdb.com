@@ -34,7 +34,7 @@
     "eslint": "^5.5.0",
     "gulp-cache": "^1.0.2",
     "gulp-concat": "^2.6.0",
-    "gulp-connect-php": "^1.0.1",
+    "gulp-connect-php": "^1.0.3",
     "gulp-eslint": "^5.0.0"
   }
 }
