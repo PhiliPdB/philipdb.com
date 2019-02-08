@@ -151,7 +151,7 @@ export function build_scss() {
 			]
 		}).on('error', $.sass.logError))
 		.pipe($.autoprefixer())
-		// Only uglify if gulp is ran with '--type production' or '--type deploy'
+		// Only minify when we are in production
 		.pipe($.if(process.env.NODE_ENV === "production", $.cssnano()))
 		.pipe(gulp.dest(paths.styles.dest));
 }
@@ -164,7 +164,6 @@ export function eslint() {
 }
 
 export function build_js(done) {
-	//const debug = !($.util.env.type === 'production' || $.util.env.type === 'deploy');
 	const debug = !(process.env.NODE_ENV === "production");
 
 	glob(paths.scripts.src, (error, files) => {
