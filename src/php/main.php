@@ -15,11 +15,10 @@ class main {
         "/about/"       => "About me",
         "/projects/"    => "Projects",
         "/skills/"      => "Skills",
-        "/contact/"     => "Contact"
+        //"/contact/"     => "Contact"
     ];
 
     public function __construct($setupDb = false) {
-
         if ($setupDb) {
             $this->setupDb();
         }
